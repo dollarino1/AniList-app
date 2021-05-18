@@ -1,0 +1,72 @@
+.frontpage {
+    margin-top: 55px;
+}
+.frontpage__auth {
+    display: flex;
+    justify-content: flex-end;
+    button {
+        font-family: 'Roboto', sans-serif;
+        font-size: 18px;
+        line-height: 32px;
+        letter-spacing: 0.115em;
+        border-radius: 24px;
+        padding: 8px 20px;
+        width: 150px;
+        border: none;
+        text-align: center;
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+}
+.frontpage__login {
+    background: #FFD0D0;
+    margin-right: 40px;
+}
+.frontpage__login:hover {
+    background: #e03c3c;
+    color: white
+}
+.frontpage__reg {
+    background: #e03c3c;
+    color: white;
+}
+.frontpage__reg:hover {
+    background: #FFD0D0;
+    color: black;
+}
+
+// Frontpage Intro part
+.frontpage__intro {
+    display: flex;
+    flex-direction: row;
+    img {
+        max-width: 560px;
+    }
+}
+.frontpage__title {
+    padding-left: 100px;
+    h1, h3 {
+        font-style: normal;
+        font-weight: normal;
+    }
+    h1 {
+        font-family: Playball;
+        font-size: 62px;
+        line-height: 90px;
+        letter-spacing: 0.015em;
+        color: #FFD0D0;
+        padding-top: 130px;
+    }
+    hr {
+        border: 2px solid #FFB4B4;
+    }
+    h3 {
+        font-family: Patrick Hand SC;
+        font-size: 40px;
+        line-height: 55px;
+        letter-spacing: 0.115em;
+        color: #F7A8A8;
+        max-width: 400px;
+        padding-top: 30px;
+    }
+}

@@ -1,0 +1,17 @@
+//  font-family: 'Patrick Hand SC', cursive;
+//  font-family: 'Playball', cursive;
+//  font-family: 'Roboto', sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #282626;
+}
+.wrapper {
+    width: 1120px;
+    margin: 0 auto;
+}
+
+@import '_frontpage';
