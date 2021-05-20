@@ -1,0 +1,59 @@
+.login__wrapper, .signup__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 300px;
+}
+.login__form, .signup__form {
+    display: flex;
+    flex-direction: column;
+    max-width: fit-content;
+    input {
+        margin-bottom: 4px;
+        border: none;
+        border: 1px solid rgba(0,0,0,.1);
+        border-radius: 2px;
+        outline: none;
+        padding: 5px;
+    }
+    input:focus {
+        border: 1px solid rgb(68, 83, 68);
+    }
+    label {
+        color: white;
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+    button {
+        display: block;
+        float: right;
+        line-height: 11pt * 2;
+        padding: 0 15px;
+        border: none;
+        background: #c3596b;
+        color: white;
+        letter-spacing: 2px;
+        transition: .2s all ease-in-out;
+        border-bottom: 2px solid transparent;
+        outline: none;
+    }
+    button:hover {
+        background: inherit;
+        color: #f65973;
+        border-bottom: 2px solid #c3596b;
+    }
+}
+.login__redirect, .signup__redirect {
+    color: white;
+    font-size: 12px;
+    text-decoration: none;
+    margin-top: 4px;
+    margin-bottom: 15px;
+}
+.login__redirectback, .signup__redirectback {
+    color: white;
+    font-size: 12px;
+    text-decoration: none;
+    margin-top: 10px;
+    text-align: end;
+}

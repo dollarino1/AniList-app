@@ -3,6 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import firebase from 'firebase'
+import 'firebase/firestore'
+import 'firebase/auth'
+
+// Initialize Firebase
+firebase.initializeApp({
+  apiKey: "AIzaSyDM7Tl4MhbKdUD9D0jfMPbRVxXnW55XL5I",
+  authDomain: "anilist-react.firebaseapp.com",
+  projectId: "anilist-react",
+  storageBucket: "anilist-react.appspot.com",
+  messagingSenderId: "606258110590",
+  appId: "1:606258110590:web:abe63383d480bbfbb2782f",
+  measurementId: "G-Y3Y6H9V3YE"
+})
 
 ReactDOM.render(
   <React.StrictMode>

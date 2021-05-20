@@ -1,11 +1,13 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom';
+import { LOGIN_ROUTE, SIGNUP_ROUTE } from '../utils/consts';
 import mainImg from './../images/LoginMainImage.png'
 
-const Frontpage = (props) => {
+const FrontPage = () => {
     return <div className="frontpage">
         <div className="frontpage__auth">
-            <button className="frontpage__login">LOGIN</button>
-            <button className="frontpage__reg">SIGN UP</button>
+            <NavLink to={LOGIN_ROUTE}><button className="frontpage__login">LOGIN</button></NavLink>
+            <NavLink to={SIGNUP_ROUTE}><button className="frontpage__reg">SIGN UP</button></NavLink>
         </div>
         <div className="frontpage__intro">
             <img src={mainImg} alt="mainImg" />
@@ -19,4 +21,4 @@ const Frontpage = (props) => {
     </div>
 }
 
-export default Frontpage;
+export default FrontPage;

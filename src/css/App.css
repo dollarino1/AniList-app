@@ -108,4 +108,86 @@ body {
   max-width: 400px;
   padding-top: 30px;
 }
+
+.login__wrapper, .signup__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 300px;
+}
+
+.login__form, .signup__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+
+.login__form input, .signup__form input {
+  margin-bottom: 4px;
+  border: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  outline: none;
+  padding: 5px;
+}
+
+.login__form input:focus, .signup__form input:focus {
+  border: 1px solid #445344;
+}
+
+.login__form label, .signup__form label {
+  color: white;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.login__form button, .signup__form button {
+  display: block;
+  float: right;
+  line-height: 22pt;
+  padding: 0 15px;
+  border: none;
+  background: #c3596b;
+  color: white;
+  letter-spacing: 2px;
+  -webkit-transition: .2s all ease-in-out;
+  transition: .2s all ease-in-out;
+  border-bottom: 2px solid transparent;
+  outline: none;
+}
+
+.login__form button:hover, .signup__form button:hover {
+  background: inherit;
+  color: #f65973;
+  border-bottom: 2px solid #c3596b;
+}
+
+.login__redirect, .signup__redirect {
+  color: white;
+  font-size: 12px;
+  text-decoration: none;
+  margin-top: 4px;
+  margin-bottom: 15px;
+}
+
+.login__redirectback, .signup__redirectback {
+  color: white;
+  font-size: 12px;
+  text-decoration: none;
+  margin-top: 10px;
+  text-align: end;
+}
 /*# sourceMappingURL=App.css.map */
