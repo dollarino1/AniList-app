@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
-import { LOGIN_ROUTE, SIGNUP_ROUTE } from '../utils/consts';
-import mainImg from './../images/LoginMainImage.png'
+import { LOGIN_ROUTE, SIGNUP_ROUTE } from '../../utils/consts';
+import mainImg from './../../images/LoginMainImage.png'
 
 const FrontPage = () => {
     return <div className="frontpage">

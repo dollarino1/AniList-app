@@ -1,8 +1,10 @@
-import FrontPage from "./components/FrontPage";
-import Login from "./components/Login";
-import MainPage from "./components/MainPage";
-import Signup from "./components/Signup";
-import { FRONTPAGE_ROUTE, LOGIN_ROUTE, MAINPAGE_ROUTE, SIGNUP_ROUTE } from "./utils/consts";
+import FrontPage from "./components/Public/FrontPage";
+import Login from "./components/Public/Login";
+import MainPage from "./components/Private/MainPage";
+import Signup from "./components/Public/Signup";
+import { FRONTPAGE_ROUTE, LOGIN_ROUTE, MAINPAGE_ROUTE, PROFILE_ROUTE, SIGNUP_ROUTE, LISTPAGE_ROUTE } from "./utils/consts";
+import ListPage from "./components/Private/ListPage";
+import Profile from './components/Private/Profile';
 
 export const publicRoutes = [
     {
@@ -23,5 +25,13 @@ export const privateRoutes = [
     {
         path: MAINPAGE_ROUTE,
         Component: MainPage
+    },
+    {
+        path: PROFILE_ROUTE,
+        Component: Profile
+    },
+    {
+        path: LISTPAGE_ROUTE,
+        Component: ListPage
     }
 ];

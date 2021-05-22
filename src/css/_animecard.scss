@@ -1,0 +1,13 @@
+.card {
+    display: flex;
+    padding-top: 100px;
+    color:white
+}
+.card__left {
+    display: flex;
+    flex-direction: column;
+    padding-right: 50px;
+    img {
+        max-width: 150px;
+    }
+}

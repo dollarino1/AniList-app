@@ -1,0 +1,29 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    img {
+        max-width: 300px;
+    }
+    div {
+        display: flex;
+        align-items: center;
+        button {
+            background-color: Transparent;
+            background-repeat:no-repeat;
+            border: none;
+            cursor:pointer;
+            overflow: hidden;  
+            padding-left: 15px; 
+            img {
+                width:25px;
+            }
+        }
+    }
+}
+.header__img {
+    width: 35px;
+}
+.header__option {
+    padding-right: 100px;
+}

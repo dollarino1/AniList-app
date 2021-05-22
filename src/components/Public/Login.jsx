@@ -1,9 +1,9 @@
 import { useFormik } from 'formik'
 import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom';
-import { FRONTPAGE_ROUTE, SIGNUP_ROUTE } from '../utils/consts';
+import { FRONTPAGE_ROUTE, SIGNUP_ROUTE } from '../../utils/consts';
 import firebase from 'firebase'
-import { Context } from '../App';
+import { Context } from '../../App';
 
 const Login = () => {
     const { setHasLogged, setPending } = useContext(Context)

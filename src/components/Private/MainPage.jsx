@@ -1,11 +1,11 @@
 import React from 'react'
-import app from '..'
+import app from '../..'
+import AnimeCard from './MainPage/AnimeCard'
 
 const MainPage = () => {
     return (
         <div>
-            <h1>MAINPAGE</h1>
-            <button onClick={() => app.auth().signOut()}>Sign out</button>
+            <AnimeCard />
         </div>
     )
 }
