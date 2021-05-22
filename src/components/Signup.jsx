@@ -1,12 +1,12 @@
 import { useFormik } from 'formik'
 import React, { useContext }  from 'react'
 import { NavLink } from 'react-router-dom'
-import { LOGIN_ROUTE, FRONTPAGE_ROUTE, MAINPAGE_ROUTE } from '../utils/consts'
+import { LOGIN_ROUTE, FRONTPAGE_ROUTE } from '../utils/consts'
 import firebase from 'firebase'
 import { Context } from '../App';
 
 const Signup = () => {
-    const { setHasLogged } = useContext(Context)
+    const { setHasLogged, setPending } = useContext(Context)
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -20,6 +20,7 @@ const Signup = () => {
                 })
                 .catch(error => alert(error));
             formik.resetForm(formik.initialValues)
+            setPending(true)
         }
     })
 

@@ -8,7 +8,7 @@ import 'firebase/firestore'
 import 'firebase/auth'
 
 // Initialize Firebase
-firebase.initializeApp({
+const app = firebase.initializeApp({
   apiKey: "AIzaSyDM7Tl4MhbKdUD9D0jfMPbRVxXnW55XL5I",
   authDomain: "anilist-react.firebaseapp.com",
   projectId: "anilist-react",
@@ -17,6 +17,7 @@ firebase.initializeApp({
   appId: "1:606258110590:web:abe63383d480bbfbb2782f",
   measurementId: "G-Y3Y6H9V3YE"
 })
+export default app;
 
 ReactDOM.render(
   <React.StrictMode>

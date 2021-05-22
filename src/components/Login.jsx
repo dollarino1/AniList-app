@@ -6,7 +6,7 @@ import firebase from 'firebase'
 import { Context } from '../App';
 
 const Login = () => {
-    const { setHasLogged } = useContext(Context)
+    const { setHasLogged, setPending } = useContext(Context)
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -20,6 +20,7 @@ const Login = () => {
                 }) 
                 .catch(error => alert(error));
             formik.resetForm(formik.initialValues)
+            setPending(true)
         }
     })
     return (
