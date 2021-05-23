@@ -6,7 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import firebase from 'firebase'
 import 'firebase/firestore'
 import 'firebase/auth'
-
+import store from './redux/reduxStore'
+import { Provider } from 'react-redux';
 // Initialize Firebase
 const app = firebase.initializeApp({
   apiKey: "AIzaSyDM7Tl4MhbKdUD9D0jfMPbRVxXnW55XL5I",
@@ -21,7 +22,9 @@ export default app;
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

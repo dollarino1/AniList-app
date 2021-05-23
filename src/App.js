@@ -4,6 +4,8 @@ import AppRouter from './components/AppRouter';
 import { createContext, useEffect, useState } from 'react';
 import app from '.';
 import Preloader from './utils/Preloader'
+import { getAnimeData } from './api/api';
+import { useDispatch } from 'react-redux';
 
 export const Context = createContext(null)
 
