@@ -1,28 +1,28 @@
 import { animeAPI } from "../api/api";
 
-const SET_ANIME_DATA = 'SET_ANIME_DATA';
+const SET_TRENDING_ANIME_DATA = 'SET_TRENDING_ANIME_DATA';
 
 let initialState = {
-    animeData: [],
+    trendingAnimeData: [],
 }
 
 const mainReducer = (state = initialState, action) => {
     switch(action.type) {
-        case SET_ANIME_DATA:
+        case SET_TRENDING_ANIME_DATA:
             return {
                 ...state,
-                animeData: action.animeData
+                trendingAnimeData: action.trendingAnimeData
             }
             
         default: return state;   
     }
 }
 
-export const setAnimeData = (animeData) => ({type: SET_ANIME_DATA, animeData})
+export const setTrendingAnimeData = (trendingAnimeData) => ({type: SET_TRENDING_ANIME_DATA, trendingAnimeData})
 
-export const getAnimeDataThunk = () => async (dispatch) => {
-    let data = await animeAPI.getAnimeData()
-        dispatch(setAnimeData(data))
+export const getTrendingAnimeDataThunk = () => async (dispatch) => {
+    let data = await animeAPI.getTrendingAnimeData()
+        dispatch(setTrendingAnimeData(data))
 }
 
 export default mainReducer;

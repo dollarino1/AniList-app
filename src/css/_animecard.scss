@@ -11,3 +11,28 @@
         max-width: 150px;
     }
 }
+.mainpage__title {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 26px;
+    color: white;
+}
+.mainpage__card {
+    margin-top: 15px;
+    display: flex;
+
+}
+.mainpage__imagecard {
+    padding-right: 15px;
+    display: flex;
+    flex-direction: column;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    text-align: center;
+    img {
+        width: 170px;
+        margin-bottom: 6px;
+    }
+}

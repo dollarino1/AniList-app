@@ -1,21 +1,28 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAnimeDataThunk } from '../../redux/mainReducer'
+import { getTrendingAnimeDataThunk } from '../../redux/mainReducer'
 import AnimeCard from './MainPage/AnimeCard'
+import AnimeImageCard from './MainPage/AnimeImageCard'
 
 const MainPage = (props) => {
     const dispatch = useDispatch()
-    const animes = useSelector(state => state.mainPage.animeData)
-    console.log('animes',animes)
+    const trendingAnimes = useSelector(state => state.mainPage.trendingAnimeData)
+    console.log('animes',trendingAnimes)
 
     useEffect(() => {
-        dispatch(getAnimeDataThunk())
+        dispatch(getTrendingAnimeDataThunk())
     }, [])
+
     return (
-        <div>
-            {animes.map(anime => 
-                <AnimeCard anime={anime}/>
-            )}
+        <div className='mainpage'>
+            <div className='mainpage__title'></div>
+            <span className='mainpage__title'>Trending Now</span>
+            <div className='mainpage__card'>
+                {trendingAnimes.map(anime => 
+                    <AnimeImageCard anime={anime}/>
+                )}
+            </div>
+
         </div>
     )
 }

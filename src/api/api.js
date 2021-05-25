@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const animeAPI = {
-    getAnimeData() {
+    getTrendingAnimeData() {
         return axios.get(`https://kitsu.io/api/edge/trending/anime?page[limit]=20&page[offset]=0`,
             {
                 params: {

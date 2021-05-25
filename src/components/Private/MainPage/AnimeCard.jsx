@@ -19,4 +19,3 @@ const AnimeCard = (props) => {
     )
 }
 
-export default AnimeCard

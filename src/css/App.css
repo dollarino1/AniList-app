@@ -261,6 +261,7 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-bottom: 100px;
 }
 
 header img {
@@ -318,5 +319,40 @@ header div button img {
 
 .card__left img {
   max-width: 150px;
+}
+
+.mainpage__title {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 26px;
+  color: white;
+}
+
+.mainpage__card {
+  margin-top: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.mainpage__imagecard {
+  padding-right: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+}
+
+.mainpage__imagecard img {
+  width: 170px;
+  margin-bottom: 6px;
 }
 /*# sourceMappingURL=App.css.map */
