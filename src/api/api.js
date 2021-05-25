@@ -1,9 +1,20 @@
 import axios from 'axios'
-import { setAnimeData } from '../redux/mainReducer'
 
-export const getAnimeData = (limit = 5, offset = 0) => {
-    return async (dispatch) => {
-        const response = await axios.get(`https://kitsu.io/api/edge/anime?page=${limit}&page=${offset}`)
-        dispatch(setAnimeData(response))
+export const animeAPI = {
+    getAnimeData() {
+        return axios.get(`https://kitsu.io/api/edge/trending/anime?page[limit]=20&page[offset]=0`,
+            {
+                params: {
+        
+            },
+                headers: {
+                    'Accept': 'application/vnd.api+json',
+                    'Content-Type': 'application/vnd.api+json'
+            },
+            })
+            .then (response => {
+                console.log('api response', response.data.data)
+                return response.data.data
+            })
     }
 }

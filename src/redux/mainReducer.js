@@ -1,7 +1,6 @@
-import { animeAPI, getAnimeData } from "../api/api";
+import { animeAPI } from "../api/api";
 
-
-const SET_ANIME_DATA = 'SET_ANIME_DATA'
+const SET_ANIME_DATA = 'SET_ANIME_DATA';
 
 let initialState = {
     animeData: [],
@@ -9,17 +8,21 @@ let initialState = {
 
 const mainReducer = (state = initialState, action) => {
     switch(action.type) {
-        case 'SET_ANIME_DATA':
+        case SET_ANIME_DATA:
             return {
                 ...state,
-                animeData: action.payload.data
+                animeData: action.animeData
             }
             
         default: return state;   
     }
 }
 
-export const setAnimeData = (animes) => ({type: SET_ANIME_DATA, payload: animes})
+export const setAnimeData = (animeData) => ({type: SET_ANIME_DATA, animeData})
 
-console.log(initialState)
+export const getAnimeDataThunk = () => async (dispatch) => {
+    let data = await animeAPI.getAnimeData()
+        dispatch(setAnimeData(data))
+}
+
 export default mainReducer;
