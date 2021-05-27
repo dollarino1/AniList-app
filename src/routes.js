@@ -2,9 +2,12 @@ import FrontPage from "./components/Public/FrontPage";
 import Login from "./components/Public/Login";
 import MainPage from "./components/Private/MainPage";
 import Signup from "./components/Public/Signup";
-import { FRONTPAGE_ROUTE, LOGIN_ROUTE, MAINPAGE_ROUTE, PROFILE_ROUTE, SIGNUP_ROUTE, LISTPAGE_ROUTE } from "./utils/consts";
+import { FRONTPAGE_ROUTE, LOGIN_ROUTE, MAINPAGE_ROUTE, 
+    PROFILE_ROUTE, SIGNUP_ROUTE, LISTPAGE_ROUTE, 
+    VIEWMORE_ROUTE } from "./utils/consts";
 import ListPage from "./components/Private/ListPage";
 import Profile from './components/Private/Profile';
+import ViewMore from "./components/Private/ViewMore";
 
 export const publicRoutes = [
     {
@@ -25,6 +28,10 @@ export const privateRoutes = [
     {
         path: MAINPAGE_ROUTE,
         Component: MainPage
+    },
+    {
+        path: VIEWMORE_ROUTE,
+        Component: ViewMore
     },
     {
         path: PROFILE_ROUTE,

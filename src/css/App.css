@@ -267,6 +267,17 @@ header {
 
 header img {
   max-width: 300px;
+  -webkit-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+}
+
+header img:hover {
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
 }
 
 header div {
@@ -296,7 +307,14 @@ header div button img {
 }
 
 .header__option {
-  padding-right: 100px;
+  margin-right: 100px;
+  -webkit-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out;
+}
+
+.header__option:hover {
+  -webkit-transform: scale(1.04);
+          transform: scale(1.04);
 }
 
 .card {
@@ -367,6 +385,11 @@ header div button img {
 .mainpage__imagecard span {
   font-family: 'Patrick Hand SC', cursive;
   font-size: 15px;
+  cursor: pointer;
+}
+
+.mainpage__imagecard:hover span {
+  color: #cccccc;
 }
 
 .mainpage__heading {

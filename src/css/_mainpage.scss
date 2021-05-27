@@ -44,6 +44,12 @@
     span {
         font-family: 'Patrick Hand SC', cursive;
         font-size: 15px;
+        cursor: pointer;
+    }
+}
+.mainpage__imagecard:hover {
+    span {
+        color:rgb(204, 204, 204)
     }
 }
 .mainpage__heading {

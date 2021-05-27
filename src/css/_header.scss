@@ -6,6 +6,12 @@ header {
     margin-top: 20px;
     img {
         max-width: 300px;
+        transition: all .1s ease-in-out;
+        transition-duration: 0.3s;
+    }
+    img:hover {
+        transition-duration: 0.2s;
+        transform: scale(1.02);
     }
     div {
         display: flex;
@@ -27,5 +33,9 @@ header {
     width: 35px;
 }
 .header__option {
-    padding-right: 100px;
+    margin-right: 100px;
+    transition: all .1s ease-in-out;
+}
+.header__option:hover {
+    transform: scale(1.04);
 }

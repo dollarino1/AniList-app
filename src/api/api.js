@@ -158,7 +158,7 @@ export const animeAPI = {
                         hasNextPage
                         perPage
                     }
-                    media(type: ANIME, sort: POPULARITY_DESC, status: NOT_YET_RELEASED) {
+                    media(type: ANIME, sort: POPULARITY_DESC, status: NOT_YET_RELEASED, season: SUMMER) {
                         id
                         title {
                             romaji
