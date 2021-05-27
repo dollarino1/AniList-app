@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AnimeImageCard = (props) => {
+const PopularAnimeCard = (props) => {
     const anime = props.anime
     return (
         <div className='mainpage__imagecard'>
@@ -10,4 +10,4 @@ const AnimeImageCard = (props) => {
     )
 }
 
-export default AnimeImageCard
+export default PopularAnimeCard
