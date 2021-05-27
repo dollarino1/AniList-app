@@ -15,7 +15,6 @@ const MainPage = (props) => {
 
     return (
         <div className='mainpage'>
-            <div className='mainpage__title'></div>
             <span className='mainpage__title'>Trending Now</span>
             <div className='mainpage__card'>
                 {trendingAnimes.map(anime => 

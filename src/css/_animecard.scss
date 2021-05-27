@@ -22,17 +22,29 @@
 .mainpage__card {
     margin-top: 15px;
     display: flex;
-
 }
 .mainpage__imagecard {
-    padding-right: 15px;
-    display: flex;
-    flex-direction: column;
     color: rgb(255, 255, 255);
     font-size: 14px;
     text-align: center;
+    width: 220px;
+    height: 280px;
+    transition: all .2s ease-in-out;
     img {
-        width: 170px;
+        margin: 10px;
+        width: 200px;
+        height: 280px;
         margin-bottom: 6px;
+        cursor:pointer;
+        border-radius: 10px;
+        transition-duration: 0.3s;
+    }
+    img:hover {
+        transition-duration: 0.3s;
+        transform: scale(1.02);
+    }
+    span {
+        font-family: 'Patrick Hand SC', cursive;
+        font-size: 15px;
     }
 }

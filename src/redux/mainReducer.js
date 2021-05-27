@@ -21,8 +21,8 @@ const mainReducer = (state = initialState, action) => {
 export const setTrendingAnimeData = (trendingAnimeData) => ({type: SET_TRENDING_ANIME_DATA, trendingAnimeData})
 
 export const getTrendingAnimeDataThunk = () => async (dispatch) => {
-    let data = await animeAPI.getTrendingAnimeData()
-        dispatch(setTrendingAnimeData(data))
+    let payload = await animeAPI.getTrendingAnimeData()
+        dispatch(setTrendingAnimeData(payload.media))
 }
 
 export default mainReducer;
