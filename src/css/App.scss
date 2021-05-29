@@ -13,6 +13,13 @@ body {
     width: 1120px;
     margin: 0 auto;
 }
+ul {
+    max-width: 1120px;
+    
+}
+li {
+    list-style-type: none;
+}
 
 @import '_frontpage';
 @import '_authpages';

@@ -4,10 +4,14 @@ import MainPage from "./components/Private/MainPage";
 import Signup from "./components/Public/Signup";
 import { FRONTPAGE_ROUTE, LOGIN_ROUTE, MAINPAGE_ROUTE, 
     PROFILE_ROUTE, SIGNUP_ROUTE, LISTPAGE_ROUTE, 
-    VIEWMORE_ROUTE } from "./utils/consts";
+    TRENDING_ROUTE, SEASON_ROUTE, UPCOMING_ROUTE, 
+    POPULAR_ROUTE } from "./utils/consts";
 import ListPage from "./components/Private/ListPage";
 import Profile from './components/Private/Profile';
-import ViewMore from "./components/Private/ViewMore";
+import Trending from "./components/Private/MainPage/Trending";
+import SeasonPopular from "./components/Private/MainPage/SeasonPopular";
+import Upcoming from "./components/Private/MainPage/Upcoming";
+import Popular from "./components/Private/MainPage/Popular";
 
 export const publicRoutes = [
     {
@@ -30,8 +34,20 @@ export const privateRoutes = [
         Component: MainPage
     },
     {
-        path: VIEWMORE_ROUTE,
-        Component: ViewMore
+        path: TRENDING_ROUTE,
+        Component: Trending
+    },
+    {
+        path: SEASON_ROUTE,
+        Component: SeasonPopular
+    },
+    {
+        path: UPCOMING_ROUTE,
+        Component: Upcoming
+    },
+    {
+        path: POPULAR_ROUTE,
+        Component: Popular
     },
     {
         path: PROFILE_ROUTE,

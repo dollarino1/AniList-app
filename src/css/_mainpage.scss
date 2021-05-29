@@ -21,7 +21,9 @@
 }
 .mainpage__card {
     margin-top: 15px;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 400px;
 }
 .mainpage__imagecard {
     color: rgb(255, 255, 255);
@@ -65,7 +67,49 @@
     line-height: 23px;
     color: rgb(231, 231, 231);
     cursor: pointer;
+    text-decoration: none;
 }
-.mainpage__seasonPopular, .mainpage__upcoming, .mainpage__alltime {
-    margin-top: 100px;
+.mainpage__view:hover {
+    color:rgb(177, 177, 177);
+}
+.paginator__pagebar {
+    display: flex;
+    justify-content: center;
+}
+
+.span-wrapper:hover {
+    cursor:pointer;
+    background-color: white;
+    border-radius: 10px;
+    span {
+        color:black;
+    }
+}
+.paginator__pagebar {
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px 0px;
+    span {
+        margin-right: 10px;
+        margin-left: 10px;
+        font-family: 'Patrick Hand SC', cursive;
+        font-style: normal;
+        font-size: 20px;
+        color:white;
+    }
+    button {
+        transform: scale(1.2);
+        color:white;
+        border:none;
+        background-color: transparent;
+        transition: all .1s ease-in-out;
+        margin: 0px 10px;
+    }
+    button:hover {
+        transform: scale(1.4)
+    }
+}
+
+.selectedPage {
+    text-decoration: underline;
 }
