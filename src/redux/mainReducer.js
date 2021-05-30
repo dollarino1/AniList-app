@@ -14,6 +14,7 @@ const SET_POPULAR_PAGES = 'SET_POPULAR_PAGES';
 
 const IS_FETCHING = 'IS_FETCHING';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+const SET_ANIME_POSTERS = 'SET_ANIME_POSTERS';
 
 let initialState = {
     trendingAnimeData: [],
@@ -30,6 +31,7 @@ let initialState = {
 
     isFetching: true,
     page: 1,
+    animePosters: [],
 }
 
 const mainReducer = (state = initialState, action) => {
@@ -88,6 +90,11 @@ const mainReducer = (state = initialState, action) => {
                 ...state,
                 page: action.currentPage
             }
+        case SET_ANIME_POSTERS:
+            return {
+                ...state,
+                animePosters: action.animePosters
+            }
         default: return state;   
     }
 }
@@ -106,7 +113,7 @@ export const setPopularPages = (popularPages) => ({type: SET_POPULAR_PAGES, popu
 
 export const toggleIsFetching = (isFetching) => ({type: IS_FETCHING, isFetching})
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
-
+export const setAnimePosters = (animePosters) => ({type: SET_ANIME_POSTERS, animePosters})
 
 // Thunk Creators ------------------------------------
 
@@ -129,6 +136,10 @@ export const getPopularAnimeDataThunk = (page, perPage, sort) => async (dispatch
     let payload = await animeAPI.getAnimeData(page, perPage, sort)
         dispatch(setPopularAnimeData(payload.media))
         dispatch(setPopularPages(payload.pageInfo))
+}
+export const getAnimePostersThunk = () => async (dispatch) => {
+    let payload = await animeAPI.getAnimePosters()
+        dispatch(setAnimePosters(payload))
 }
 
 

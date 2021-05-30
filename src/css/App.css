@@ -1,3 +1,4 @@
+@import url(f:\Akmal\WEB\AniList\anilist-app\node_modules\react-awesome-slider\dist\styles.css);
 * {
   margin: 0;
   padding: 0;
@@ -481,5 +482,35 @@ header div button img {
 
 .selectedPage {
   text-decoration: underline;
+}
+
+.mainpage__slider {
+  margin-bottom: 100px;
+}
+
+.awssld {
+  --slider-height-percentage: 40%;
+  --slider-transition-duration: 700ms;
+  --organic-arrow-thickness: 4px;
+  --organic-arrow-border-radius: 0px;
+  --organic-arrow-height: 40px;
+  --organic-arrow-color: #2b4a73;
+  --control-button-width: 10%;
+  --control-button-height: 25%;
+  --control-button-background: transparent;
+  --control-bullet-color: #ffffff2f;
+  --control-bullet-active-color: #8a8a8a;
+  --loader-bar-color: #851515;
+  --loader-bar-height: 6px;
+}
+
+.awssld__bullets button {
+  width: 6px;
+  height: 6px;
+  margin: 5px 10px;
+}
+
+.awssld__wrapper {
+  border-radius: 20px;
 }
 /*# sourceMappingURL=App.css.map */

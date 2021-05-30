@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getTrendingAnimeDataThunk, setCurrentPage, toggleIsFetching } from '../../../redux/mainReducer'
+import { getTrendingAnimeDataThunk, setCurrentPage } from '../../../redux/mainReducer'
 import { Paginator } from '../../../utils/Paginator'
 import AnimeCard from './AnimeCard'
 

@@ -29,10 +29,10 @@ export const publicRoutes = [
 ];
 
 export const privateRoutes = [
-    {
-        path: MAINPAGE_ROUTE,
-        Component: MainPage
-    },
+    // {
+    //     path: MAINPAGE_ROUTE,
+    //     Component: MainPage
+    // },
     {
         path: TRENDING_ROUTE,
         Component: Trending

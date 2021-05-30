@@ -6,14 +6,17 @@ import { privateRoutes, publicRoutes } from '../routes';
 import { FRONTPAGE_ROUTE, MAINPAGE_ROUTE } from '../utils/consts';
 import Preloader from '../utils/Preloader';
 import Header from './Private/Header';
+import MainPage from './Private/MainPage';
 
 const AppRouter = () => {
     const {hasLogged} = useContext(Context)
+    const isFetching = useSelector(state => state.mainPage.isFetching)
     return hasLogged
     ? (<>
         <Header />
-        
         <Switch> 
+            {isFetching ? <Preloader /> :
+            <Route path={MAINPAGE_ROUTE} component={MainPage} exact={true} />}
             {privateRoutes.map(({path, Component}) =>
                 <Route path={path} component={Component} exact={true}/>)}
 
