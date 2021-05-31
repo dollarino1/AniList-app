@@ -1,30 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Route } from 'react-router-dom'
 import { getPopularAnimeDataThunk, getSeasonPopularAnimeDataThunk, 
     getTrendingAnimeDataThunk, getUpcomingAnimeDataThunk, getAnimePostersThunk, toggleIsFetching } from '../../redux/mainReducer'
-import { POPULAR_ROUTE, SEASON_ROUTE, TRENDING_ROUTE, UPCOMING_ROUTE } from '../../utils/consts'
+import { MAINPAGE_ROUTE, POPULAR_ROUTE, SEASON_ROUTE, TRENDING_ROUTE, UPCOMING_ROUTE } from '../../utils/consts'
 import Preloader from '../../utils/Preloader'
 import AnimeCard from './MainPage/AnimeCard'
 import Slider from './MainPage/Slider.jsx'
+import Trending from './MainPage/Trending'
 
 
-const MainPage = () => {
-    const dispatch = useDispatch()
-    const trendingAnimes = useSelector(state => state.mainPage.trendingAnimeData)
-    const seasonPopularAnimes = useSelector(state => state.mainPage.seasonPopularAnimeData)
-    const upcomingAnimes = useSelector(state => state.mainPage.upcomingAnimeData)
-    const popularAnimes = useSelector(state => state.mainPage.popularAnimeData)
-    const animePosters = useSelector(state => state.mainPage.animePosters)
+const MainPage = ({trendingAnimes, seasonPopularAnimes, upcomingAnimes, popularAnimes, animePosters }) => {
+    // const dispatch = useDispatch()
+    // const trendingAnimes = useSelector(state => state.mainPage.trendingAnimeData)
+    // const seasonPopularAnimes = useSelector(state => state.mainPage.seasonPopularAnimeData)
+    // const upcomingAnimes = useSelector(state => state.mainPage.upcomingAnimeData)
+    // const popularAnimes = useSelector(state => state.mainPage.popularAnimeData)
+    // const animePosters = useSelector(state => state.mainPage.animePosters)
 
-    useEffect(() => {
-            dispatch(getTrendingAnimeDataThunk())
-            dispatch(getSeasonPopularAnimeDataThunk(1, 5, 'POPULARITY_DESC', 'RELEASING',  'SPRING'))
-            dispatch(getUpcomingAnimeDataThunk(1, 5, 'POPULARITY_DESC', 'NOT_YET_RELEASED', 'SUMMER'))
-            dispatch(getPopularAnimeDataThunk(1, 5, 'POPULARITY_DESC'))
-            dispatch(getAnimePostersThunk())
-            dispatch(toggleIsFetching(false))
-    }, [])
+    // useEffect(() => {
+    //         dispatch(getTrendingAnimeDataThunk())
+    //         dispatch(getSeasonPopularAnimeDataThunk(1, 5, 'POPULARITY_DESC', 'RELEASING',  'SPRING'))
+    //         dispatch(getUpcomingAnimeDataThunk(1, 5, 'POPULARITY_DESC', 'NOT_YET_RELEASED', 'SUMMER'))
+    //         dispatch(getPopularAnimeDataThunk(1, 5, 'POPULARITY_DESC'))
+    //         dispatch(getAnimePostersThunk())
+    //         dispatch(toggleIsFetching(false))
+    // }, [])
 
     return (
         <div className='mainpage'>
@@ -34,7 +35,7 @@ const MainPage = () => {
             <div className='mainpage__trending'>
                 <div className='mainpage__heading'>
                     <span className='mainpage__title'>Trending Now</span>
-                    <NavLink to={TRENDING_ROUTE} className='mainpage__view'>View more</NavLink>
+                    <NavLink to={MAINPAGE_ROUTE} className='mainpage__view'>View more</NavLink>           
                 </div>
                 <div className='mainpage__card'>
                     {trendingAnimes.map(anime => 

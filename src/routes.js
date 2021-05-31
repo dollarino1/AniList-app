@@ -5,13 +5,16 @@ import Signup from "./components/Public/Signup";
 import { FRONTPAGE_ROUTE, LOGIN_ROUTE, MAINPAGE_ROUTE, 
     PROFILE_ROUTE, SIGNUP_ROUTE, LISTPAGE_ROUTE, 
     TRENDING_ROUTE, SEASON_ROUTE, UPCOMING_ROUTE, 
-    POPULAR_ROUTE } from "./utils/consts";
+    POPULAR_ROUTE, 
+    ANIMEPAGE_ROUTE} from "./utils/consts";
 import ListPage from "./components/Private/ListPage";
 import Profile from './components/Private/Profile';
 import Trending from "./components/Private/MainPage/Trending";
 import SeasonPopular from "./components/Private/MainPage/SeasonPopular";
 import Upcoming from "./components/Private/MainPage/Upcoming";
 import Popular from "./components/Private/MainPage/Popular";
+import MainPageContainer from "./components/Private/MainPageContainer";
+import AnimePage from "./components/Private/AnimePage";
 
 export const publicRoutes = [
     {
@@ -29,10 +32,14 @@ export const publicRoutes = [
 ];
 
 export const privateRoutes = [
-    // {
-    //     path: MAINPAGE_ROUTE,
-    //     Component: MainPage
-    // },
+    {
+        path: MAINPAGE_ROUTE,
+        Component: MainPageContainer
+    },
+    {
+        path: ANIMEPAGE_ROUTE,
+        Component: AnimePage
+    },
     {
         path: TRENDING_ROUTE,
         Component: Trending

@@ -8,6 +8,7 @@ import 'firebase/firestore'
 import 'firebase/auth'
 import store from './redux/reduxStore'
 import { Provider } from 'react-redux';
+
 // Initialize Firebase
 const app = firebase.initializeApp({
   apiKey: "AIzaSyDM7Tl4MhbKdUD9D0jfMPbRVxXnW55XL5I",
@@ -19,6 +20,7 @@ const app = firebase.initializeApp({
   measurementId: "G-Y3Y6H9V3YE"
 })
 export default app;
+
 
 ReactDOM.render(
   <React.StrictMode>
