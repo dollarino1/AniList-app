@@ -35,7 +35,7 @@ const MainPage = ({trendingAnimes, seasonPopularAnimes, upcomingAnimes, popularA
             <div className='mainpage__trending'>
                 <div className='mainpage__heading'>
                     <span className='mainpage__title'>Trending Now</span>
-                    <NavLink to={MAINPAGE_ROUTE} className='mainpage__view'>View more</NavLink>           
+                    <NavLink to={TRENDING_ROUTE} className='mainpage__view'>View more</NavLink>           
                 </div>
                 <div className='mainpage__card'>
                     {trendingAnimes.map(anime => 

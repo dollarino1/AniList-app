@@ -12,16 +12,14 @@ const Trending = () => {
     console.log(trendingPages)
     const isFetching = useSelector(state => state.mainPage.isFetching)
 
-    useEffect(() => {
-            
+    useEffect(() => {         
             dispatch(getTrendingAnimeDataThunk(1, 50));
-            dispatch(toggleIsFetching(false))
     }, [])
     const onPageChanged = (pageNumber) => {
         dispatch(setCurrentPage(pageNumber))
         dispatch(getTrendingAnimeDataThunk(pageNumber, 50))
     }
-    return isFetching ? <Preloader /> : 
+    return (
         <>
             <Paginator totalItemsCount={trendingPages.total}
             pageSize={trendingPages.perPage} portionSize={10}
@@ -38,6 +36,7 @@ const Trending = () => {
             currentPage={trendingPages.currentPage} onPageChanged={onPageChanged}
             lastPage={trendingPages.lastPage}/>
         </>
+    )
 }
 
 export default Trending
