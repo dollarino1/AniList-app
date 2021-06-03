@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, Route } from 'react-router-dom'
 import { getPopularAnimeDataThunk, getSeasonPopularAnimeDataThunk, 
     getTrendingAnimeDataThunk, getUpcomingAnimeDataThunk, getAnimePostersThunk, toggleIsFetching } from '../../redux/mainReducer'
-import { MAINPAGE_ROUTE, POPULAR_ROUTE, SEASON_ROUTE, TRENDING_ROUTE, UPCOMING_ROUTE } from '../../utils/consts'
+import { ANIMEPAGE_ROUTE, MAINPAGE_ROUTE, POPULAR_ROUTE, SEASON_ROUTE, TRENDING_ROUTE, UPCOMING_ROUTE } from '../../utils/consts'
 import Preloader from '../../utils/Preloader'
 import AnimeCard from './MainPage/AnimeCard'
 import Slider from './MainPage/Slider.jsx'
@@ -38,8 +38,11 @@ const MainPage = ({trendingAnimes, seasonPopularAnimes, upcomingAnimes, popularA
                     <NavLink to={TRENDING_ROUTE} className='mainpage__view'>View more</NavLink>           
                 </div>
                 <div className='mainpage__card'>
+                    
                     {trendingAnimes.map(anime => 
-                        <AnimeCard anime={anime}/>
+                        <NavLink to={{pathname:ANIMEPAGE_ROUTE + anime.id, props: {anime: anime}}}>
+                            <AnimeCard anime={anime}/>
+                        </NavLink>
                     )}
                 </div>
             </div>
