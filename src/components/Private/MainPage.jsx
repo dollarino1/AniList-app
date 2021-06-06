@@ -1,32 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { NavLink, Route } from 'react-router-dom'
-import { getPopularAnimeDataThunk, getSeasonPopularAnimeDataThunk, 
-    getTrendingAnimeDataThunk, getUpcomingAnimeDataThunk, getAnimePostersThunk, toggleIsFetching } from '../../redux/mainReducer'
-import { ANIMEPAGE_ROUTE, MAINPAGE_ROUTE, POPULAR_ROUTE, SEASON_ROUTE, TRENDING_ROUTE, UPCOMING_ROUTE } from '../../utils/consts'
-import Preloader from '../../utils/Preloader'
+import React from 'react'
+import { NavLink } from 'react-router-dom'
+import { POPULAR_ROUTE, SEASON_ROUTE, TRENDING_ROUTE, UPCOMING_ROUTE } from '../../utils/consts'
 import AnimeCard from './MainPage/AnimeCard'
 import Slider from './MainPage/Slider.jsx'
-import Trending from './MainPage/Trending'
-
 
 const MainPage = ({trendingAnimes, seasonPopularAnimes, upcomingAnimes, popularAnimes, animePosters }) => {
-    // const dispatch = useDispatch()
-    // const trendingAnimes = useSelector(state => state.mainPage.trendingAnimeData)
-    // const seasonPopularAnimes = useSelector(state => state.mainPage.seasonPopularAnimeData)
-    // const upcomingAnimes = useSelector(state => state.mainPage.upcomingAnimeData)
-    // const popularAnimes = useSelector(state => state.mainPage.popularAnimeData)
-    // const animePosters = useSelector(state => state.mainPage.animePosters)
-
-    // useEffect(() => {
-    //         dispatch(getTrendingAnimeDataThunk())
-    //         dispatch(getSeasonPopularAnimeDataThunk(1, 5, 'POPULARITY_DESC', 'RELEASING',  'SPRING'))
-    //         dispatch(getUpcomingAnimeDataThunk(1, 5, 'POPULARITY_DESC', 'NOT_YET_RELEASED', 'SUMMER'))
-    //         dispatch(getPopularAnimeDataThunk(1, 5, 'POPULARITY_DESC'))
-    //         dispatch(getAnimePostersThunk())
-    //         dispatch(toggleIsFetching(false))
-    // }, [])
-
     return (
         <div className='mainpage'>
             <div className="mainpage__slider">
@@ -40,7 +18,7 @@ const MainPage = ({trendingAnimes, seasonPopularAnimes, upcomingAnimes, popularA
                 <div className='mainpage__card'>
                     
                     {trendingAnimes.map(anime => 
-                        <NavLink to={{pathname:ANIMEPAGE_ROUTE + anime.id, props: {anime: anime}}}>
+                        <NavLink exact to={`/anime-entry/${anime.id}`}>
                             <AnimeCard anime={anime}/>
                         </NavLink>
                     )}

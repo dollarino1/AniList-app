@@ -1,6 +1,5 @@
 import FrontPage from "./components/Public/FrontPage";
 import Login from "./components/Public/Login";
-import MainPage from "./components/Private/MainPage";
 import Signup from "./components/Public/Signup";
 import { FRONTPAGE_ROUTE, LOGIN_ROUTE, MAINPAGE_ROUTE, 
     PROFILE_ROUTE, SIGNUP_ROUTE, LISTPAGE_ROUTE, 

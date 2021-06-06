@@ -4,23 +4,20 @@ import { Redirect, Route, Switch } from 'react-router';
 import { Context } from '../App';
 import { privateRoutes, publicRoutes } from '../routes';
 import { FRONTPAGE_ROUTE, MAINPAGE_ROUTE } from '../utils/consts';
-import Preloader from '../utils/Preloader';
 import Header from './Private/Header';
-import MainPage from './Private/MainPage';
 
 const AppRouter = () => {
     const {hasLogged} = useContext(Context)
     return hasLogged
-    ? (<>
+    ? <>
         <Header />
         <Switch> 
             {privateRoutes.map(({path, Component}) =>
                 <Route path={path} component={Component} exact={true}/>)}
-
             <Redirect to={MAINPAGE_ROUTE}/>
         </Switch>
         </>
-    )
+    
     : (
         <Switch>
             {publicRoutes.map(({path, Component}) =>

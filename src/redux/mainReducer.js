@@ -12,9 +12,9 @@ const SET_UPCOMING_PAGES = 'SET_UPCOMING_PAGES';
 const SET_POPULAR_ANIME_DATA = 'SET_POPULAR_ANIME_DATA';
 const SET_POPULAR_PAGES = 'SET_POPULAR_PAGES';
 
-const IS_FETCHING = 'IS_FETCHING';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_ANIME_POSTERS = 'SET_ANIME_POSTERS';
+const SET_ANIME_INFO = 'SET_ANIME_INFO';
 
 let initialState = {
     trendingAnimeData: [],
@@ -29,9 +29,9 @@ let initialState = {
     popularAnimeData: [],
     popularPages: [],
 
-    isFetching: true,
     page: 1,
     animePosters: [],
+    animeInfo: null,
 }
 
 const mainReducer = (state = initialState, action) => {
@@ -80,11 +80,6 @@ const mainReducer = (state = initialState, action) => {
                 popularPages: action.popularPages
             }
 //--------------------------------------------------------
-        case IS_FETCHING: 
-            return {
-                ...state,
-                isFetching: action.isFetching
-            }
         case SET_CURRENT_PAGE: 
             return {
                 ...state,
@@ -94,6 +89,11 @@ const mainReducer = (state = initialState, action) => {
             return {
                 ...state,
                 animePosters: action.animePosters
+            }
+        case SET_ANIME_INFO: 
+            return {
+                ...state,
+                animeInfo: action.animeInfo
             }
         default: return state;   
     }
@@ -111,9 +111,9 @@ export const setUpcomingPages = (upcomingPages) => ({type: SET_UPCOMING_PAGES, u
 export const setPopularAnimeData = (popularAnimeData) => ({type: SET_POPULAR_ANIME_DATA, popularAnimeData})
 export const setPopularPages = (popularPages) => ({type: SET_POPULAR_PAGES, popularPages})
 
-export const toggleIsFetching = (isFetching) => ({type: IS_FETCHING, isFetching})
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
 export const setAnimePosters = (animePosters) => ({type: SET_ANIME_POSTERS, animePosters})
+export const setAnimeInfo = (animeInfo) => ({type: SET_ANIME_INFO, animeInfo})
 
 // Thunk Creators ------------------------------------
 
@@ -140,6 +140,10 @@ export const getPopularAnimeDataThunk = (page, perPage, sort) => async (dispatch
 export const getAnimePostersThunk = () => async (dispatch) => {
     let payload = await animeAPI.getAnimePosters()
         dispatch(setAnimePosters(payload))
+}
+export const getAnimeByIdThunk= (id) => async (dispatch) => {
+    let payload = await animeAPI.getAnimebyId(id)
+        dispatch(setAnimeInfo(payload.media))
 }
 
 

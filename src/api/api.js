@@ -23,11 +23,6 @@ export const animeAPI = {
                             extraLarge
                         }
                         status
-                        episodes
-                        season
-                        type
-                        genres
-                        averageScore
                     }
                 }
             }`;
@@ -49,7 +44,7 @@ export const animeAPI = {
         }).then(response => {
             console.log('api response', response.data.data.Page)
             return response.data.data.Page
-        })
+        }).catch(err => console.log(err.message))
     },
     getAnimePosters() {
         return axios.get(`https://kitsu.io/api/edge/trending/anime`,
@@ -67,8 +62,47 @@ export const animeAPI = {
                 console.log('api response kitsu', response.data.data)
                 return response.data.data
             })
-    }
+    },
+        async getAnimebyId(id, page = 1, perPage = 1) {
+            const query = `
+                query ($id: Int, $page: Int, $perPage: Int) {
+                    Page(page: $page, perPage: $perPage) {
+                    media(id: $id, type: ANIME) {
+                        id
+                        title {
+                            romaji
+                            english
+                        }
+                        siteUrl
+                        coverImage {
+                            extraLarge
+                        }
+                        status
+                        episodes
+                        season
+                        type
+                        genres
+                        averageScore
+                    }
+                    }
+                
+                }`;
+            let variables = {
+                page: page,
+                perPage: perPage,
+                id: id
+            };
+            const headers = {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            };
+            return await axios.post(`https://graphql.anilist.co`, {
+                query,
+                variables,
+                headers
+            }).then(response => {
+                console.log('api response entry', response.data.data.Page)
+                return response.data.data.Page
+            }).catch((err) => console.log(err.message))
 }
-
-
-
+}

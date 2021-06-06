@@ -260,6 +260,11 @@ li {
   }
 }
 
+.preloader-private {
+  text-align: center;
+  padding-top: 180px;
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;

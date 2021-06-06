@@ -1,48 +1,28 @@
-import React, { useEffect, useState } from 'react'
-import { useLocation } from 'react-router'
+import React, { useEffect} from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { getAnimeByIdThunk } from '../../redux/mainReducer';
+import Loading from '../../utils/Loading';
+import AnimeEntry from './AnimeEntry';
 
-const AnimePage = ( props ) => {
-    let location = useLocation();
-    console.log(location, 'loc')
-    // console.log('props history', props.history.location.props.anime)
-    const animeId = location.search
-    console.log(animeId)
-    // let item;
-    // useEffect (() => {
-    //     item = location.props.anime
-    //     console.log(item)
-    //     localStorage.setItem('item', JSON.stringify(item));
-    // })
-    // const [anime, setAnime] = useState(item)
-    // useEffect(() => {
-    //     let storedAnime = JSON.parse(localStorage.getItem('item'))
-    //     setAnime(storedAnime)
-    //     console.log('stored', storedAnime)
-    // })
-    // const [anime, setAnime] = useState(item)
-    // // console.log('anime', anime)
-    // useEffect (() => {
-    //     localStorage.setItem('item', JSON.stringify(item));
-    // }, [])
+const AnimePage = React.memo(({match}) => {
+    let dispatch = useDispatch();
+    const queryId = parseInt(match.params.id)
+    console.log(queryId)
+    useEffect(() => {
+        dispatch(getAnimeByIdThunk(queryId))
+    }, [])
+    const anime = useSelector(state => state.mainPage.animeInfo)
+    console.log(anime)
 
-
-
-    // useEffect (() => {
-    //     const storedAnime = JSON.parse(localStorage.getItem('item'))
-    //     setAnime(storedAnime)
-    //     console.log('stored', storedAnime)
-    // }, [])
-
-
-
-
-
+    if(!anime) {
+        return <Loading />
+    }
     return (
         <div>
-
+            <AnimeEntry anime={anime[0]}/>
            <button>pageanime</button>
         </div>
     )
-}
+})
 
-export default AnimePage
+export default AnimePage;
