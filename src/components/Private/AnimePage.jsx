@@ -18,10 +18,7 @@ const AnimePage = React.memo(({match}) => {
         return <Loading />
     }
     return (
-        <div>
-            <AnimeEntry anime={anime[0]}/>
-           <button>pageanime</button>
-        </div>
+        <AnimeEntry anime={anime[0]}/>
     )
 })
 

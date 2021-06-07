@@ -13,10 +13,10 @@ const Header = () => {
             <NavLink to={MAINPAGE_ROUTE}><img src={logo} alt="logo" /></NavLink>
             <div>
                 <div className="header__option">
-                    <NavLink to={LISTPAGE_ROUTE}><img className="header__img" src={bookmark}/></NavLink>
+                    <NavLink to={LISTPAGE_ROUTE}><img className="header__img" src={bookmark} alt="bookmark"/></NavLink>
                 </div>
-                <NavLink to={PROFILE_ROUTE}><img className="header__img" src={accountImg} alt="" /></NavLink>
-                <button onClick={() => app.auth().signOut()}><img src={exitImg}/></button>
+                <NavLink to={PROFILE_ROUTE}><img className="header__img" src={accountImg} alt="profile" /></NavLink>
+                <button onClick={() => app.auth().signOut()}><img src={exitImg} alt='exit_'/></button>
             </div>
         </header>
     )

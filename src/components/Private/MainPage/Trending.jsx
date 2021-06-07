@@ -10,7 +10,6 @@ const Trending = () => {
     const animes = useSelector(state => state.mainPage.trendingAnimeData)
     const pages = useSelector(state => state.mainPage.trendingPages)
     console.log(pages)
-    const isFetching = useSelector(state => state.mainPage.isFetching)
 
     useEffect(() => {         
             dispatch(getTrendingAnimeDataThunk(1, 50));

@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import { useSelector } from 'react-redux';
 import { Redirect, Route, Switch } from 'react-router';
 import { Context } from '../App';
 import { privateRoutes, publicRoutes } from '../routes';
@@ -13,7 +12,7 @@ const AppRouter = () => {
         <Header />
         <Switch> 
             {privateRoutes.map(({path, Component}) =>
-                <Route path={path} component={Component} exact={true}/>)}
+                <Route path={path} key={Component} component={Component} exact={true}/>)}
             <Redirect to={MAINPAGE_ROUTE}/>
         </Switch>
         </>

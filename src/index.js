@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import firebase from 'firebase'
-import 'firebase/firestore'
-import 'firebase/auth'
-import store from './redux/reduxStore'
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import 'firebase/auth';
+import store from './redux/reduxStore';
 import { Provider } from 'react-redux';
 
 // Initialize Firebase

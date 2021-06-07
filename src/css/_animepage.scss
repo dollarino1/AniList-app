@@ -1,0 +1,43 @@
+.entry__banner {
+    box-shadow: inset 0px -98px 29px -43px rgba(0, 0, 0, 0.25);
+    img {
+        position: relative;
+        z-index: -2;
+        width: 100%;
+    }
+}
+.entry__block {
+    display: grid;
+    grid-template-columns: 0.2fr 0.8fr;
+    grid-template-rows: 1fr;
+}
+.entry__imageblock {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    position: relative;
+    top: -30px;
+    img {
+        width: 180px;
+        box-shadow: 1px 0px 39px 3px rgba(0, 0, 0, 0.25);
+        border-radius: 3px;
+        margin-bottom: 10px;
+    }
+    button {
+        width: 180px;
+    }
+}
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+.entry__description {
+    margin-top: 30px;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    span {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    div {
+        padding-top: 40px;
+        font-size: 15px;
+    }
+}

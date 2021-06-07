@@ -8,7 +8,7 @@ const MainPage = ({trendingAnimes, seasonPopularAnimes, upcomingAnimes, popularA
     return (
         <div className='mainpage'>
             <div className="mainpage__slider">
-                <Slider animePosters={animePosters}/>
+                <Slider trendingAnimes={trendingAnimes}/>
             </div>
             <div className='mainpage__trending'>
                 <div className='mainpage__heading'>
@@ -18,7 +18,7 @@ const MainPage = ({trendingAnimes, seasonPopularAnimes, upcomingAnimes, popularA
                 <div className='mainpage__card'>
                     
                     {trendingAnimes.map(anime => 
-                        <NavLink exact to={`/anime-entry/${anime.id}`}>
+                        <NavLink exact to={`/anime-entry/${anime.id}`} key={anime.id}>
                             <AnimeCard anime={anime}/>
                         </NavLink>
                     )}
@@ -32,7 +32,9 @@ const MainPage = ({trendingAnimes, seasonPopularAnimes, upcomingAnimes, popularA
                 </div>
                 <div className='mainpage__card'>
                     {seasonPopularAnimes.map(anime => 
+                    <NavLink exact to={`/anime-entry/${anime.id}`} key={anime.id}>
                         <AnimeCard anime={anime}/>
+                    </NavLink>
                     )}
                 </div>
             </div>
@@ -43,8 +45,10 @@ const MainPage = ({trendingAnimes, seasonPopularAnimes, upcomingAnimes, popularA
                     <NavLink to={UPCOMING_ROUTE} className='mainpage__view'>View more</NavLink>
                 </div>
                 <div className='mainpage__card'>
-                    {upcomingAnimes.map(anime => 
+                    {upcomingAnimes.map(anime =>
+                    <NavLink exact to={`/anime-entry/${anime.id}`} key={anime.id}>
                         <AnimeCard anime={anime}/>
+                    </NavLink> 
                     )}
                 </div>
             </div>
@@ -56,7 +60,9 @@ const MainPage = ({trendingAnimes, seasonPopularAnimes, upcomingAnimes, popularA
                 </div>
                 <div className='mainpage__card'>
                     {popularAnimes.map(anime => 
+                    <NavLink exact to={`/anime-entry/${anime.id}`} key={anime.id}>
                         <AnimeCard anime={anime}/>
+                    </NavLink>
                     )}
                 </div>
             </div>

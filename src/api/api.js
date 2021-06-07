@@ -22,6 +22,7 @@ export const animeAPI = {
                         coverImage {
                             extraLarge
                         }
+                        bannerImage
                         status
                     }
                 }
@@ -46,23 +47,6 @@ export const animeAPI = {
             return response.data.data.Page
         }).catch(err => console.log(err.message))
     },
-    getAnimePosters() {
-        return axios.get(`https://kitsu.io/api/edge/trending/anime`,
-            {
-                params: {
-                    limit: 5,
-
-            },
-                headers: {
-                    'Accept': 'application/vnd.api+json',
-                    'Content-Type': 'application/vnd.api+json'
-            },
-            })
-            .then (response => {
-                console.log('api response kitsu', response.data.data)
-                return response.data.data
-            })
-    },
         async getAnimebyId(id, page = 1, perPage = 1) {
             const query = `
                 query ($id: Int, $page: Int, $perPage: Int) {
@@ -77,6 +61,8 @@ export const animeAPI = {
                         coverImage {
                             extraLarge
                         }
+                        bannerImage
+                        description(asHtml: false)
                         status
                         episodes
                         season

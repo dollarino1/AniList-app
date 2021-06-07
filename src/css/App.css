@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
 @import url(f:\Akmal\WEB\AniList\anilist-app\node_modules\react-awesome-slider\dist\styles.css);
 * {
   margin: 0;
@@ -491,6 +492,67 @@ header div button img {
 
 .mainpage__slider {
   margin-bottom: 100px;
+}
+
+.entry__banner {
+  -webkit-box-shadow: inset 0px -98px 29px -43px rgba(0, 0, 0, 0.25);
+          box-shadow: inset 0px -98px 29px -43px rgba(0, 0, 0, 0.25);
+}
+
+.entry__banner img {
+  position: relative;
+  z-index: -2;
+  width: 100%;
+}
+
+.entry__block {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 0.2fr 0.8fr;
+      grid-template-columns: 0.2fr 0.8fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+}
+
+.entry__imageblock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 10px;
+  position: relative;
+  top: -30px;
+}
+
+.entry__imageblock img {
+  width: 180px;
+  -webkit-box-shadow: 1px 0px 39px 3px rgba(0, 0, 0, 0.25);
+          box-shadow: 1px 0px 39px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+.entry__imageblock button {
+  width: 180px;
+}
+
+.entry__description {
+  margin-top: 30px;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+}
+
+.entry__description span {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.entry__description div {
+  padding-top: 40px;
+  font-size: 15px;
 }
 
 .awssld {
