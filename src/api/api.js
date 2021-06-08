@@ -66,9 +66,31 @@ export const animeAPI = {
                         status
                         episodes
                         season
+                        seasonYear
+                        format
+                        startDate {
+                            year
+                            month
+                            day
+                        }
+                        duration
+                        source
                         type
                         genres
                         averageScore
+                        nextAiringEpisode {
+                            timeUntilAiring
+                            episode
+                            airingAt
+                        }
+                        isAdult
+                        studios {
+                            edges {
+                                node {
+                                    name
+                                }
+                            }
+                        }
                     }
                     }
                 

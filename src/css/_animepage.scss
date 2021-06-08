@@ -20,6 +20,7 @@
     top: -30px;
     img {
         width: 180px;
+        height: 250px;
         box-shadow: 1px 0px 39px 3px rgba(0, 0, 0, 0.25);
         border-radius: 3px;
         margin-bottom: 10px;
@@ -41,4 +42,26 @@
         padding-top: 40px;
         font-size: 15px;
     }
+}
+.entry__short {
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    p {
+        margin-top: 15px;
+    }
+    p:first-child {
+        margin-top: 0;
+    }
+}
+.entry__wrapper {
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    background-color: rgba(250, 235, 215, 0.096);
+    width: 180px;
+    color: white;
+    padding: 15px 15px;
+}
+.airing {
+    color: rgb(188, 188, 248);
 }

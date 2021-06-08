@@ -50,10 +50,36 @@ const AnimeEntry = ({anime}) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  function convertToLowerCase(item) {
+    var oldItem = item.toLowerCase();
+    return oldItem[0].toUpperCase() + oldItem.slice(1);
+    
+  }
+  const status = convertToLowerCase(anime.status)
+  const season = convertToLowerCase(anime.season)
+  const type = convertToLowerCase(anime.type)
+  const source = convertToLowerCase(anime.source)
+  let genres = anime.genres.toString().replace(/([A-Z])/g, ' $1')
+
+  function secondsToDhm(seconds) {
+    seconds = Number(seconds);
+    var d = Math.floor(seconds / (3600*24));
+    var h = Math.floor(seconds % (3600*24) / 3600);
+    var m = Math.floor(seconds % 3600 / 60);
+    
+    var dDisplay = d > 0 ? d + (d == 1 ? "d " : "d ") : "";
+    var hDisplay = h > 0 ? h + (h == 1 ? "h " : "h ") : "";
+    var mDisplay = m > 0 ? m + (m == 1 ? "m " : "m ") : "";
+    return dDisplay + hDisplay + mDisplay;
+    }
+    if(anime.nextAiringEpisode) {
+      var timeUntilAiring = secondsToDhm(anime.nextAiringEpisode.timeUntilAiring)
+    }
+    
     return (
         <div>
             <div className='entry__banner'>
-                <img src={anime.bannerImage} alt="banner" />
+              {anime.bannerImage ? <img src={anime.bannerImage} alt="banner" /> : null}
             </div>
             
             <div className="entry__block">
@@ -95,15 +121,36 @@ const AnimeEntry = ({anime}) => {
                             <ListItemText primary="Set as completed" />
                             </StyledMenuItem>
                         </StyledMenu>
-                        </div>
-                        
+                      </div>
                 </div>
                 <div className="entry__description">
                     <span>{anime.title.english ? anime.title.english : anime.title.romaji}</span>
                     <div dangerouslySetInnerHTML={{__html: anime.description}} />
                 </div>
-            </div>
-            
+                  
+                <div className="entry__short">
+                  <div className="entry__wrapper">
+                    {anime.nextAiringEpisode ? <p className="airing"><strong>Airing:</strong> Ep {anime.nextAiringEpisode.episode}: {timeUntilAiring}</p> : null}
+                    <p><strong>Type:</strong> {type}</p>
+                    <p><strong>Format:</strong> {anime.format}</p>
+                    <p><strong>Status:</strong> {status}</p>
+                    {anime.episodes ? <p><strong>Episodes:</strong> {anime.episodes}</p> : null}
+                    {anime.duration ? <p><strong>Duration:</strong> {anime.duration} min</p> : null}
+                    <p><strong>Season:</strong> {season} {anime.seasonYear}</p>
+                    <p><strong>Start date:</strong> {anime.startDate.day}/{anime.startDate.month}/{anime.startDate.year}</p>
+                    <p><strong>Genres:</strong> {genres}</p>
+                    <p><strong>Source:</strong> {source}</p>
+                    <p><strong>Studio:</strong> {anime.studios.edges[0].node.name}</p>
+                    {anime.averageScore ? <p><strong>Average score:</strong> {anime.averageScore}%</p> : null}
+                    
+                    
+                  </div>
+
+                </div>
+                <div className="entry__info">
+                  s
+                </div>
+                </div>
         </div>
     )
 }

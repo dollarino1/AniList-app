@@ -534,6 +534,7 @@ header div button img {
 
 .entry__imageblock img {
   width: 180px;
+  height: 250px;
   -webkit-box-shadow: 1px 0px 39px 3px rgba(0, 0, 0, 0.25);
           box-shadow: 1px 0px 39px 3px rgba(0, 0, 0, 0.25);
   border-radius: 3px;
@@ -558,6 +559,37 @@ header div button img {
 .entry__description div {
   padding-top: 40px;
   font-size: 15px;
+}
+
+.entry__short {
+  padding-top: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.entry__short p {
+  margin-top: 15px;
+}
+
+.entry__short p:first-child {
+  margin-top: 0;
+}
+
+.entry__wrapper {
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  background-color: rgba(250, 235, 215, 0.096);
+  width: 180px;
+  color: white;
+  padding: 15px 15px;
+}
+
+.airing {
+  color: #bcbcf8;
 }
 
 .awssld {

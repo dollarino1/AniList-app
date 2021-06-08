@@ -3,6 +3,7 @@ import { Redirect, Route, Switch } from 'react-router';
 import { Context } from '../App';
 import { privateRoutes, publicRoutes } from '../routes';
 import { FRONTPAGE_ROUTE, MAINPAGE_ROUTE } from '../utils/consts';
+import Footer from './Private/Footer';
 import Header from './Private/Header';
 
 const AppRouter = () => {
@@ -15,6 +16,7 @@ const AppRouter = () => {
                 <Route path={path} key={Component} component={Component} exact={true}/>)}
             <Redirect to={MAINPAGE_ROUTE}/>
         </Switch>
+        <Footer />
         </>
     
     : (
