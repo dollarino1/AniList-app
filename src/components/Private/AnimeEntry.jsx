@@ -89,7 +89,7 @@ const AnimeEntry = ({anime}) => {
       let arrStudios = [anime.studios.edges.map(({node}) => (
         node.name
       ))]
-      let studios = arrStudios.toString().replace(/([A-Z])/g, ' $1')
+      let studios = arrStudios.toString().replace(/(,)/g, '$1 ')
     return (
         <div>
             <div className='entry__banner'>
