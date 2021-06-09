@@ -592,6 +592,47 @@ header div button img {
   color: #bcbcf8;
 }
 
+.entry__info {
+  padding-top: 100px;
+}
+
+.entry__card {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
+}
+
+.entry__actor {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  font-family: 'Raleway', sans-serif;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 20px;
+}
+
+.entry__actor img {
+  height: 130px;
+  width: 100px;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 0px 39px 3px rgba(126, 236, 255, 0.25);
+          box-shadow: 1px 0px 39px 3px rgba(126, 236, 255, 0.25);
+}
+
+.entry__actor span {
+  margin-top: 7px;
+}
+
 .awssld {
   --slider-height-percentage: 40%;
   --slider-transition-duration: 700ms;

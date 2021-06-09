@@ -91,9 +91,36 @@ export const animeAPI = {
                                 }
                             }
                         }
+                        characters {
+                            edges {
+                                node
+                                {
+                                    id
+                                    name {
+                                        full
+                                        native
+                                    }
+                                    image {
+                                        large
+                                    }
+                                    age
+                                    favourites
+                                }
+                                role
+                                voiceActors {
+                                    name {
+                                        full
+                                    }
+                                    languageV2
+                                    image {
+                                        large
+                                    }
+                                }
+                            }
+                        }
                     }
-                    }
-                
+
+                }
                 }`;
             let variables = {
                 page: page,

@@ -55,8 +55,11 @@ const AnimeEntry = ({anime}) => {
     return oldItem[0].toUpperCase() + oldItem.slice(1);
     
   }
-  const status = convertToLowerCase(anime.status)
-  const season = convertToLowerCase(anime.season)
+  const status = convertToLowerCase(anime.status).replace(/_/g, ' ')
+  if(anime.season) {
+    var season = convertToLowerCase(anime.season)
+  }
+  
   const type = convertToLowerCase(anime.type)
   const source = convertToLowerCase(anime.source)
   let genres = anime.genres.toString().replace(/([A-Z])/g, ' $1')
@@ -72,10 +75,15 @@ const AnimeEntry = ({anime}) => {
     var mDisplay = m > 0 ? m + (m == 1 ? "m " : "m ") : "";
     return dDisplay + hDisplay + mDisplay;
     }
+    
     if(anime.nextAiringEpisode) {
       var timeUntilAiring = secondsToDhm(anime.nextAiringEpisode.timeUntilAiring)
     }
-    
+
+      let characters = [anime.characters.edges.map(({node}) => (
+        node
+      )).sort((a, b) => b.favourites - a.favourites)]
+      let removed = characters[0].splice(12)
     return (
         <div>
             <div className='entry__banner'>
@@ -136,19 +144,23 @@ const AnimeEntry = ({anime}) => {
                     <p><strong>Status:</strong> {status}</p>
                     {anime.episodes ? <p><strong>Episodes:</strong> {anime.episodes}</p> : null}
                     {anime.duration ? <p><strong>Duration:</strong> {anime.duration} min</p> : null}
-                    <p><strong>Season:</strong> {season} {anime.seasonYear}</p>
+                    {anime.season ? <p><strong>Season:</strong> {season} {anime.seasonYear}</p> : null}
                     <p><strong>Start date:</strong> {anime.startDate.day}/{anime.startDate.month}/{anime.startDate.year}</p>
                     <p><strong>Genres:</strong> {genres}</p>
                     <p><strong>Source:</strong> {source}</p>
                     <p><strong>Studio:</strong> {anime.studios.edges[0].node.name}</p>
                     {anime.averageScore ? <p><strong>Average score:</strong> {anime.averageScore}%</p> : null}
-                    
-                    
                   </div>
-
                 </div>
                 <div className="entry__info">
-                  s
+                  <div className="entry__card">
+                    {characters[0].map((char) => (
+                      <div className="entry__actor" key={char.id}>
+                        <img src={char.image.large}></img>
+                        <span>{char.name.full}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
                 </div>
         </div>

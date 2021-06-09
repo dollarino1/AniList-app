@@ -65,3 +65,29 @@
 .airing {
     color: rgb(188, 188, 248);
 }
+.entry__info {
+    padding-top: 100px;
+}
+.entry__card {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+.entry__actor {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: 'Raleway', sans-serif;
+    align-items: center;
+    padding-bottom: 20px;
+    img {
+        height: 130px;
+        width: 100px;
+        border-radius: 5px;
+        box-shadow: 1px 0px 39px 3px rgba(126, 236, 255, 0.25);
+    }
+    span {
+        margin-top: 7px;
+    }
+}
