@@ -84,6 +84,9 @@ export const animeAPI = {
                             airingAt
                         }
                         isAdult
+                        trailer {
+                            id
+                        }
                         studios {
                             edges {
                                 node {

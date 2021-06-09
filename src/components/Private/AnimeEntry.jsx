@@ -8,6 +8,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import ReactPlayer from 'react-player';
 
 const StyledMenu = withStyles({
     paper: {
@@ -75,7 +76,7 @@ const AnimeEntry = ({anime}) => {
     var mDisplay = m > 0 ? m + (m == 1 ? "m " : "m ") : "";
     return dDisplay + hDisplay + mDisplay;
     }
-    
+
     if(anime.nextAiringEpisode) {
       var timeUntilAiring = secondsToDhm(anime.nextAiringEpisode.timeUntilAiring)
     }
@@ -84,6 +85,11 @@ const AnimeEntry = ({anime}) => {
         node
       )).sort((a, b) => b.favourites - a.favourites)]
       let removed = characters[0].splice(12)
+
+      let arrStudios = [anime.studios.edges.map(({node}) => (
+        node.name
+      ))]
+      let studios = arrStudios.toString().replace(/([A-Z])/g, ' $1')
     return (
         <div>
             <div className='entry__banner'>
@@ -142,13 +148,13 @@ const AnimeEntry = ({anime}) => {
                     <p><strong>Type:</strong> {type}</p>
                     <p><strong>Format:</strong> {anime.format}</p>
                     <p><strong>Status:</strong> {status}</p>
-                    {anime.episodes ? <p><strong>Episodes:</strong> {anime.episodes}</p> : null}
+                    {anime.episodes ? <p><strong>Episodes:</strong> {anime.episodes}</p> : anime.nextAiringEpisode ? <p><strong>Episodes: </strong> {anime.nextAiringEpisode.episode - 1}</p> : null}
                     {anime.duration ? <p><strong>Duration:</strong> {anime.duration} min</p> : null}
                     {anime.season ? <p><strong>Season:</strong> {season} {anime.seasonYear}</p> : null}
                     <p><strong>Start date:</strong> {anime.startDate.day}/{anime.startDate.month}/{anime.startDate.year}</p>
                     <p><strong>Genres:</strong> {genres}</p>
                     <p><strong>Source:</strong> {source}</p>
-                    <p><strong>Studio:</strong> {anime.studios.edges[0].node.name}</p>
+                    <p><strong>Studio:</strong> {studios}</p>
                     {anime.averageScore ? <p><strong>Average score:</strong> {anime.averageScore}%</p> : null}
                   </div>
                 </div>
@@ -161,9 +167,16 @@ const AnimeEntry = ({anime}) => {
                       </div>
                     ))}
                   </div>
+                  {anime.trailer ? 
+                <div className="entry__video">
+                  <ReactPlayer url={`https://www.youtube.com/watch?v=${anime.trailer.id}`} />
+                </div> : null}
                 </div>
+
                 </div>
+         
         </div>
+    
     )
 }
 

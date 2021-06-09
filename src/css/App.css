@@ -633,6 +633,16 @@ header div button img {
   margin-top: 7px;
 }
 
+.entry__video {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 40px;
+}
+
 .awssld {
   --slider-height-percentage: 40%;
   --slider-transition-duration: 700ms;
