@@ -8,12 +8,12 @@ import Preloader from './utils/Preloader'
 export const Context = createContext(null)
 
 function App() {
-  const [hasLogged, setHasLogged] = useState(null)
+  const [user, setUser] = useState(null)
   const [pending, setPending] = useState(true)
 
   useEffect(() => {
     app.auth().onAuthStateChanged((user) => {
-      setHasLogged(user)
+      setUser(user)
       setPending(false)
     })
   }, [])
@@ -24,8 +24,8 @@ function App() {
     :     <div className="App">
     <div className="wrapper">
       <Context.Provider value={{
-        hasLogged,
-        setHasLogged,
+        user: user,
+        setUser: setUser,
         setPending
       }}>
         <BrowserRouter>

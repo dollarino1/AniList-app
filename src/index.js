@@ -21,7 +21,6 @@ const app = firebase.initializeApp({
 })
 export default app;
 
-
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

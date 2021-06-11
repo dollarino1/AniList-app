@@ -643,6 +643,11 @@ header div button img {
   margin-top: 40px;
 }
 
+.white {
+  color: white;
+  font-size: 16px;
+}
+
 .awssld {
   --slider-height-percentage: 40%;
   --slider-transition-duration: 700ms;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Button } from '@material-ui/core';
 import watching from './../../images/watching.svg'
 import planning from './../../images/planning.svg'
@@ -9,6 +9,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ReactPlayer from 'react-player';
+import { Context } from '../../App';
+import firebase from 'firebase';
 
 const StyledMenu = withStyles({
     paper: {
@@ -42,15 +44,33 @@ const StyledMenu = withStyles({
   }))(MenuItem);
 
 const AnimeEntry = ({anime}) => {
-    const [anchorEl, setAnchorEl] = React.useState(null);
+  const {user} = useContext(Context);
+  console.log(user.uid)
+  const db = firebase.firestore()
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+  
 
   const handleClose = () => {
     setAnchorEl(null);
+    
   };
+
+  const handleAdd = (event) => {
+    setAnchorEl(null);
+    console.log(event.target.textContent)
+    console.log(anime.id, anime.title.english)
+    db.collection('users').doc(user.uid).set({
+      animeList: {
+        anime: {id: anime.id, name: anime.title.english, imgURL: anime.coverImage.extraLarge}
+      } 
+    })
+  }
+
   function convertToLowerCase(item) {
     var oldItem = item.toLowerCase();
     return oldItem[0].toUpperCase() + oldItem.slice(1);
@@ -116,23 +136,25 @@ const AnimeEntry = ({anime}) => {
                             open={Boolean(anchorEl)}
                             onClose={handleClose}
                         >
-                            <StyledMenuItem>
-                            <ListItemIcon>
-                                <img src={watching} alt="watching" />
-                            </ListItemIcon>
-                            <ListItemText primary="Set as watching" />
+                            <StyledMenuItem onClick={handleAdd} value='watching'>
+                              <ListItemIcon>
+                                  <img src={watching} alt="watching" />
+                              </ListItemIcon>
+                              <ListItemText primary="Set as watching" />
                             </StyledMenuItem>
-                            <StyledMenuItem>
-                            <ListItemIcon>
-                                <img src={planning} alt="planning" />
-                            </ListItemIcon>
-                            <ListItemText primary="Set as planning" />
+
+                            <StyledMenuItem onClick={handleAdd} value='planning'>
+                              <ListItemIcon>
+                                  <img src={planning} alt="planning" />
+                              </ListItemIcon>
+                              <ListItemText primary="Set as planning" />
                             </StyledMenuItem>
-                            <StyledMenuItem>
-                            <ListItemIcon>
-                                <img src={completed} alt="planning" />
-                            </ListItemIcon>
-                            <ListItemText primary="Set as completed" />
+
+                            <StyledMenuItem onClick={handleAdd} value='completed'>
+                              <ListItemIcon>
+                                  <img src={completed} alt="completed" />
+                              </ListItemIcon>
+                              <ListItemText primary="Set as completed" />
                             </StyledMenuItem>
                         </StyledMenu>
                       </div>

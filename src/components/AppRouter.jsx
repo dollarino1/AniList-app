@@ -7,8 +7,8 @@ import Footer from './Private/Footer';
 import Header from './Private/Header';
 
 const AppRouter = () => {
-    const {hasLogged} = useContext(Context)
-    return hasLogged
+    const {user} = useContext(Context)
+    return user
     ? <>
         <Header />
         <Switch> 

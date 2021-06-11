@@ -2,11 +2,14 @@ import { useFormik } from 'formik'
 import React, { useContext }  from 'react'
 import { NavLink } from 'react-router-dom'
 import { LOGIN_ROUTE, FRONTPAGE_ROUTE } from '../../utils/consts'
-import firebase from 'firebase'
+import firebase from 'firebase';
 import { Context } from '../../App';
 
 const Signup = () => {
-    const { setHasLogged, setPending } = useContext(Context)
+    const db = firebase.firestore();
+
+    const { setUser, setPending } = useContext(Context)
+
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -15,8 +18,16 @@ const Signup = () => {
         onSubmit: (values) => {
             console.log(values)
             firebase.auth().createUserWithEmailAndPassword(values.email, values.password)
+                .then (cred => {
+                    return db.collection('users').doc(cred.user.uid).set({
+                        email: values.email,
+                        animeList: {
+                            anime: 1
+                        }
+                    });
+                })
                 .then (() => {
-                    setHasLogged(true)
+                    setUser(true)
                 })
                 .catch(error => alert(error));
             formik.resetForm(formik.initialValues)
