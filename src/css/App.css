@@ -670,6 +670,7 @@ header div button img {
 
 .card__left p {
   color: #ADADAD;
+  font-size: 14px;
 }
 
 .status {
@@ -706,6 +707,46 @@ header div button img {
   background: #89C939;
   border-radius: 6px;
   padding: 5px;
+}
+
+.listpage__filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 40px;
+  font-weight: bold;
+  color: white;
+  font-size: 18px;
+  line-height: 14px;
+  cursor: pointer;
+}
+
+.filter img {
+  margin-right: 5px;
+}
+
+.filter:hover {
+  background-color: white;
+}
+
+.listPage__filterimg {
+  margin-right: 10px;
+}
+
+.filterbutton {
+  margin-right: 20px;
 }
 
 .awssld {

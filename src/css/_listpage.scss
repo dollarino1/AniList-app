@@ -20,7 +20,7 @@
     }
     p {
         color: #ADADAD;
-
+        font-size: 14px;
     }
     
 }
@@ -59,4 +59,31 @@
         border-radius: 6px;
         padding: 5px;
     }
+}
+
+.listpage__filter {
+    display: flex;
+    align-items: center;
+}
+.filter {
+    display: flex;
+    align-items: center;
+    margin-right: 40px;
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+    line-height: 14px;
+    cursor: pointer;
+    img {
+        margin-right: 5px;
+    }
+}
+.filter:hover {
+    background-color: rgb(255, 255, 255);
+}
+.listPage__filterimg {
+    margin-right: 10px;
+}
+.filterbutton {
+    margin-right: 20px;
 }

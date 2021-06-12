@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Button } from '@material-ui/core';
 import watching from './../../images/watching.svg'
-import planning from './../../images/planning.svg'
+import planning from './../../images/planning.png'
 import completed from './../../images/completed.svg'
 import { withStyles } from '@material-ui/core/styles';
 import Menu from '@material-ui/core/Menu';
@@ -78,6 +78,7 @@ const AnimeEntry = ({anime}) => {
         rating: anime.averageScore,
         genres: genres,
         season: season,
+        nextAiringEpisode: anime.nextAiringEpisode.episode,
     })
   }
 
