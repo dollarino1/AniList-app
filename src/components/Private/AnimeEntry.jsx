@@ -45,7 +45,7 @@ const StyledMenu = withStyles({
 
 const AnimeEntry = ({anime}) => {
   const {user} = useContext(Context);
-  console.log(user.uid)
+  console.log('user id', user.uid)
   const db = firebase.firestore()
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -57,17 +57,27 @@ const AnimeEntry = ({anime}) => {
 
   const handleClose = () => {
     setAnchorEl(null);
-    
   };
 
   const handleAdd = (event) => {
     setAnchorEl(null);
-    console.log(event.target.textContent)
+    const listStatus = event.target.textContent.slice(7);
+    console.log(status)
     console.log(anime.id, anime.title.english)
-    db.collection('users').doc(user.uid).set({
-      animeList: {
-        anime: {id: anime.id, name: anime.title.english, imgURL: anime.coverImage.extraLarge}
-      } 
+    db.collection('users').doc(user.uid).collection('animes').doc(anime.id.toString()).set({
+        id: anime.id, 
+        nameEN: anime.title.english, 
+        nameJP: anime.title.romaji, 
+        imgURL: anime.coverImage.extraLarge,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        listStatus: listStatus,
+        startDate: anime.seasonYear,
+        status: status,
+        episodes: anime.episodes,
+        description: anime.description,
+        rating: anime.averageScore,
+        genres: genres,
+        season: season,
     })
   }
 

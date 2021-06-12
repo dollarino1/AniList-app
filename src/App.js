@@ -4,6 +4,7 @@ import AppRouter from './components/AppRouter';
 import { createContext, useEffect, useState } from 'react';
 import app from '.';
 import Preloader from './utils/Preloader'
+import ScrollToTop from './utils/ScrollToTop';
 
 export const Context = createContext(null)
 
@@ -29,6 +30,7 @@ function App() {
         setPending
       }}>
         <BrowserRouter>
+          <ScrollToTop />
           <AppRouter />
         </BrowserRouter>
       </Context.Provider>

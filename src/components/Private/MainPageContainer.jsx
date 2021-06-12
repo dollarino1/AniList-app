@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getPopularAnimeDataThunk, getSeasonPopularAnimeDataThunk, 
-    getTrendingAnimeDataThunk, getUpcomingAnimeDataThunk } from '../../redux/mainReducer'
+    getTrendingAnimeDataThunk, getUpcomingAnimeDataThunk, setAnimeInfo } from '../../redux/mainReducer'
 import Loading from '../../utils/Loading'
 import MainPage from './MainPage'
 
@@ -18,6 +18,7 @@ const MainPageContainer = () => {
             dispatch(getSeasonPopularAnimeDataThunk(1, 5, 'POPULARITY_DESC', 'RELEASING',  'SPRING'))
             dispatch(getUpcomingAnimeDataThunk(1, 5, 'POPULARITY_DESC', 'NOT_YET_RELEASED', 'SUMMER'))
             dispatch(getPopularAnimeDataThunk(1, 5, 'POPULARITY_DESC'))
+            dispatch(setAnimeInfo(null))
     }, [])
 
     return trendingAnimes.length === 5 ? (

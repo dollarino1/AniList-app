@@ -20,16 +20,13 @@ const Signup = () => {
             firebase.auth().createUserWithEmailAndPassword(values.email, values.password)
                 .then (cred => {
                     return db.collection('users').doc(cred.user.uid).set({
-                        email: values.email,
-                        animeList: {
-                            anime: 1
-                        }
+                        email: values.email
                     });
                 })
-                .then (() => {
-                    setUser(true)
+                .then ((cred) => {
+                    setUser(cred.user)
                 })
-                .catch(error => alert(error));
+                .catch(error => console.log(error));
             formik.resetForm(formik.initialValues)
             setPending(true)
         }

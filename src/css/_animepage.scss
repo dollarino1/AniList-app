@@ -4,6 +4,7 @@
         position: relative;
         z-index: -2;
         width: 100%;
+        height: 280px;
     }
 }
 .entry__block {
@@ -81,11 +82,16 @@
     font-family: 'Raleway', sans-serif;
     align-items: center;
     padding-bottom: 20px;
+    transition: all .2s ease-in-out;
     img {
         height: 130px;
         width: 100px;
         border-radius: 5px;
         box-shadow: 1px 0px 39px 3px rgba(126, 236, 255, 0.25);
+    }
+    img:hover {
+        transition-duration: 0.4s;
+        transform: scale(1.04);
     }
     span {
         margin-top: 7px;
