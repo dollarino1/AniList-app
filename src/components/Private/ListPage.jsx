@@ -33,8 +33,11 @@ const ListPage = () => {
                         <div className='card__right'>
                             <h2>{anime.nameEN ? anime.nameEN : anime.nameJP}</h2>
                             <p dangerouslySetInnerHTML={{__html: anime.description}}></p>
+                        </div>
+                        <div className='status'>
                             <span>{anime.listStatus}</span>
                         </div>
+                        
                     </div>
                 </div>
             ))}

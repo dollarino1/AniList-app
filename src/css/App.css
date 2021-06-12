@@ -672,15 +672,20 @@ header div button img {
   color: #ADADAD;
 }
 
-.card__left span {
+.status {
+  position: relative;
+}
+
+.status span {
   position: absolute;
-  left: 125px;
-  bottom: 310px;
-  font-weight: 900;
-  font-size: 18px;
-  background: #89C939;
-  border-radius: 6px;
-  padding: 5px;
+  top: -40px;
+  right: 100px;
+  background: rgba(231, 83, 83, 0.397);
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 0px 0px 15px 15px;
 }
 
 .card__right h2 {
@@ -688,15 +693,19 @@ header div button img {
   margin-bottom: 30px;
 }
 
-.card__right .card__image span {
+.card__image {
+  position: relative;
+}
+
+.card__image span {
   position: absolute;
-  top: 270px;
-  left: 160px;
+  top: 205px;
+  left: 5px;
   font-weight: 900;
   font-size: 17px;
-  background: #c9397c;
-  border-radius: 0px 0px 6px 6px;
-  padding: 7px;
+  background: #89C939;
+  border-radius: 6px;
+  padding: 5px;
 }
 
 .awssld {
