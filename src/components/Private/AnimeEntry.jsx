@@ -3,45 +3,12 @@ import { Button } from '@material-ui/core';
 import watching from './../../images/watching.svg'
 import planning from './../../images/planning.png'
 import completed from './../../images/completed.svg'
-import { withStyles } from '@material-ui/core/styles';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ReactPlayer from 'react-player';
 import { Context } from '../../App';
 import firebase from 'firebase';
-
-const StyledMenu = withStyles({
-    paper: {
-      border: '1px solid #d3d4d5',
-    },
-  })((props) => (
-    <Menu
-      elevation={0}
-      getContentAnchorEl={null}
-      anchorOrigin={{
-        vertical: 'bottom',
-        horizontal: 'center',
-      }}
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'center',
-      }}
-      {...props}
-    />
-  ));
-  
-  const StyledMenuItem = withStyles((theme) => ({
-    root: {
-      '&:focus': {
-        backgroundColor: theme.palette.primary.main,
-        '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
-          color: theme.palette.common.white,
-        },
-      },
-    },
-  }))(MenuItem);
+import StyledMenu, {StyledMenuItem } from './../../css/styledmenu'
 
 const AnimeEntry = ({anime}) => {
   const {user} = useContext(Context);
@@ -78,7 +45,7 @@ const AnimeEntry = ({anime}) => {
         rating: anime.averageScore,
         genres: genres,
         season: season,
-        nextAiringEpisode: anime.nextAiringEpisode.episode,
+        nextAiringEpisode: anime.nextAiringEpisode,
     })
   }
 

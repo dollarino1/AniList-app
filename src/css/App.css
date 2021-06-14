@@ -749,6 +749,11 @@ header div button img {
   margin-right: 20px;
 }
 
+.listpage__menu button {
+  width: 60px;
+  color: white;
+}
+
 .awssld {
   --slider-height-percentage: 40%;
   --slider-transition-duration: 700ms;
