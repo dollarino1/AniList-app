@@ -4,6 +4,8 @@ import { getPopularAnimeDataThunk, setCurrentPage } from '../../../redux/mainRed
 import Loading from '../../../utils/Loading'
 import { Paginator } from '../../../utils/Paginator'
 import AnimeCard from './AnimeCard'
+import { NavLink } from 'react-router-dom'
+import { setAnimeInfo } from './../../../redux/mainReducer'
 
 const Popular = () => {
     const dispatch = useDispatch()
@@ -12,6 +14,7 @@ const Popular = () => {
 
     useEffect(() => {     
             dispatch(getPopularAnimeDataThunk(1, 50, 'POPULARITY_DESC')) 
+            dispatch(setAnimeInfo(null))
     }, [])
 
     const onPageChanged = (pageNumber) => {
@@ -27,7 +30,9 @@ const Popular = () => {
             <span className='mainpage__title'>All time popular</span>
             <ul className='mainpage__card'>
                 {animes.map(anime => 
-                    <AnimeCard anime={anime}/>
+                    <NavLink exact to={`/anime-entry/${anime.id}`} key={anime.id}>
+                        <AnimeCard anime={anime}/>
+                    </NavLink>
                 )}
             </ul>
             <Paginator totalItemsCount={pages.total}

@@ -4,6 +4,8 @@ import { getSeasonPopularAnimeDataThunk, setCurrentPage } from '../../../redux/m
 import Loading from '../../../utils/Loading'
 import { Paginator } from '../../../utils/Paginator'
 import AnimeCard from './AnimeCard'
+import { NavLink } from 'react-router-dom'
+import { setAnimeInfo } from './../../../redux/mainReducer'
 
 const SeasonPopular = () => {
     const dispatch = useDispatch()
@@ -12,6 +14,7 @@ const SeasonPopular = () => {
 
     useEffect(() => {     
             dispatch(getSeasonPopularAnimeDataThunk(1, 50, 'POPULARITY_DESC', 'RELEASING', 'SPRING')) 
+            dispatch(setAnimeInfo(null))
     }, [])
 
     const onPageChanged = (pageNumber) => {
@@ -26,7 +29,9 @@ const SeasonPopular = () => {
             <span className='mainpage__title'>Popular this season</span>
             <ul className='mainpage__card'>
                 {animes.map(anime => 
-                    <AnimeCard anime={anime}/>
+                    <NavLink exact to={`/anime-entry/${anime.id}`} key={anime.id}>
+                        <AnimeCard anime={anime}/>
+                    </NavLink>
                 )}
             </ul>
             <Paginator totalItemsCount={pages.total}

@@ -9,7 +9,7 @@ import completed1 from './../../images/completed1.svg'
 import all from './../../images/All.svg'
 import { Button } from '@material-ui/core';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-
+import { NavLink } from 'react-router-dom'
 
 const ListPage = React.memo(({animes}) => {
     const db = firebase.firestore()
@@ -62,7 +62,6 @@ const ListPage = React.memo(({animes}) => {
         filterHandler()
         console.log('useeffect')
     }, [animes, listStatusq])
-
     return (
         <>
             <div className='listpage__filter'>
@@ -98,10 +97,12 @@ const ListPage = React.memo(({animes}) => {
                 <div className="card__wrapper">
                     <div className='card'>
                         <div className="card__left">
-                            <div className="card__image">
-                                <img src={anime.imgURL}/>
-                                <span>{anime.rating}</span>
-                            </div>
+                            <NavLink exact to={`/anime-entry/${anime.id}`} key={anime.id}>
+                                <div className="card__image">
+                                    <img src={anime.imgURL}/>
+                                    <span>{anime.rating}</span>
+                                </div>
+                            </NavLink>
                             <p>{anime.startDate} {anime.season}, {anime.status}</p>
                             <p>Episodes: {anime.episodes ? anime.episodes : anime.nextAiringEpisode - 1}</p>
                             <div className='listpage__menu'>

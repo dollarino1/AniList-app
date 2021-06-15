@@ -142,5 +142,55 @@ export const animeAPI = {
                 console.log('api response entry', response.data.data.Page)
                 return response.data.data.Page
             }).catch((err) => console.log(err.message))
-}
+},
+    async getAnimebySearch(search) {
+        const query = `
+            query ($id: Int, $page: Int, $perPage: Int, $search: String) {
+                Page(page: $page, perPage: $perPage) {
+                    pageInfo {
+                        total
+                        currentPage
+                        lastPage
+                        hasNextPage
+                        perPage
+                    }
+                media(id: $id, type: ANIME, search: $search) {
+                    id
+                    title {
+                        romaji
+                        english
+                    }
+                    coverImage {
+                        extraLarge
+                    }
+                    status
+                    episodes
+                    season
+                    startDate {
+                        year
+                        month
+                        day
+                    }
+                }
+
+            }
+            }`;
+        let variables = {
+            search: search,
+            page: 1,
+            perPage: 5,
+        };
+        const headers = {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+        };
+        return await axios.post(`https://graphql.anilist.co`, {
+            query,
+            variables,
+            headers
+        }).then(response => {
+            console.log('api response entry', response.data.data.Page)
+            return response.data.data.Page
+        }).catch((err) => console.log(err.message))
+    }
 }

@@ -135,4 +135,5 @@ export const getAnimeByIdThunk= (id) => async (dispatch) => {
 }
 
 
+
 export default mainReducer;

@@ -332,6 +332,39 @@ header div button img {
           transform: scale(1.04);
 }
 
+.search__form {
+  position: relative;
+}
+
+.search__form input {
+  width: 200px;
+  height: 30px;
+}
+
+.autocomplete {
+  position: absolute;
+  list-style: none;
+  width: 100%;
+  background: white;
+  -webkit-box-shadow: 1px 1px 5px black;
+          box-shadow: 1px 1px 5px black;
+  z-index: 10;
+  height: auto;
+  overflow: auto;
+  max-height: 200px;
+}
+
+.autocomplete__item {
+  padding: 10px;
+}
+
+.autocomplete__item:hover {
+  background-color: lightgray;
+  cursor: pointer;
+  -webkit-transition: cubic-bezier(1, 0, 0, 1) 0.2s all;
+  transition: cubic-bezier(1, 0, 0, 1) 0.2s all;
+}
+
 .mainpage__title {
   font-family: 'Roboto', sans-serif;
   font-style: normal;
@@ -699,6 +732,12 @@ header div button img {
 
 .status .status3 {
   background: rgba(83, 231, 95, 0.397);
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  /* no underline */
 }
 
 .card__right h2 {

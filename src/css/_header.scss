@@ -39,3 +39,29 @@ header {
 .header__option:hover {
     transform: scale(1.04);
 }
+.search__form {
+    position: relative;
+    input {
+        width: 200px;
+        height: 30px;
+    }
+}
+.autocomplete {
+    position: absolute;
+    list-style: none;
+    width: 100%;
+    background: white;
+    box-shadow: 1px 1px 5px black;
+    z-index: 10;
+    height: auto;
+    overflow: auto;
+    max-height: 200px;
+}
+.autocomplete__item {
+    padding: 10px;
+}
+.autocomplete__item:hover {
+    background-color: rgb(211, 211, 211);
+    cursor: pointer;
+    transition: cubic-bezier(1, 0, 0, 1) .2s all;
+}

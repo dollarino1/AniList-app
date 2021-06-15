@@ -4,6 +4,8 @@ import { getTrendingAnimeDataThunk, setCurrentPage } from '../../../redux/mainRe
 import Loading from '../../../utils/Loading'
 import { Paginator } from '../../../utils/Paginator'
 import AnimeCard from './AnimeCard'
+import { NavLink } from 'react-router-dom'
+import { setAnimeInfo } from './../../../redux/mainReducer'
 
 const Trending = () => {
     const dispatch = useDispatch()
@@ -13,6 +15,7 @@ const Trending = () => {
 
     useEffect(() => {         
             dispatch(getTrendingAnimeDataThunk(1, 50));
+            dispatch(setAnimeInfo(null))
     }, [])
 
     const onPageChanged = (pageNumber) => {
@@ -29,7 +32,9 @@ const Trending = () => {
             <span className='mainpage__title'>Trending Now</span>
             <ul className='mainpage__card'>
                 {animes.map(anime => 
-                    <AnimeCard anime={anime}/>
+                    <NavLink exact to={`/anime-entry/${anime.id}`} key={anime.id}>
+                        <AnimeCard anime={anime}/>
+                    </NavLink>
                 )}
             </ul>
             <Paginator totalItemsCount={pages.total}
