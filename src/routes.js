@@ -14,6 +14,7 @@ import Upcoming from "./components/Private/MainPage/Upcoming";
 import Popular from "./components/Private/MainPage/Popular";
 import MainPageContainer from "./components/Private/MainPageContainer";
 import AnimePage from "./components/Private/AnimePage";
+import ListPageContainer from "./components/Private/ListPageContainer";
 
 export const publicRoutes = [
     {
@@ -61,6 +62,6 @@ export const privateRoutes = [
     },
     {
         path: LISTPAGE_ROUTE,
-        Component: ListPage
+        Component: ListPageContainer
     }
 ];

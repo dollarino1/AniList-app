@@ -30,12 +30,21 @@
         position:absolute;
         top: -40px;
         right: 100px;
-        background: rgba(231, 83, 83, 0.397);
         text-align: center;
         text-transform: capitalize;
+        font-weight: bold;
         font-size: 14px;
         padding: 10px;
-        border-radius: 0px 0px 15px 15px;
+        border-radius: 0px 0px 10px 10px;
+    }
+    .status1 {
+        background: rgba(238, 235, 41, 0.397);
+    }
+    .status2 {
+        background: rgba(83, 110, 231, 0.397);
+    }
+    .status3 {
+        background: rgba(83, 231, 95, 0.397);
     }
 }
 
