@@ -44,6 +44,7 @@ header {
     input {
         width: 200px;
         height: 30px;
+        border-radius: 5px;
     }
 }
 .autocomplete {
@@ -59,6 +60,7 @@ header {
     a {
         color: black;
     }
+    
 }
 .autocomplete__item {
     display: flex;
@@ -76,6 +78,7 @@ header {
         }
         flex-direction: column;
     }
+
 }
 
 .autocomplete__item:hover {
@@ -83,3 +86,27 @@ header {
     cursor: pointer;
     transition: cubic-bezier(1, 0, 0, 1) .2s all;
 }
+
+.autocomplete::-webkit-scrollbar {
+    width: 8px;
+  }
+
+.autocomplete::-webkit-scrollbar-track {
+    background: rgb(179, 177, 177);
+
+}
+
+.autocomplete::-webkit-scrollbar-thumb {
+    background: rgb(136, 136, 136);
+
+  }
+
+.autocomplete::-webkit-scrollbar-thumb:hover {
+    background: rgb(100, 100, 100);
+
+  }
+
+.autocomplete::-webkit-scrollbar-thumb:active {
+    background: rgb(68, 68, 68);
+
+  }

@@ -1,5 +1,5 @@
 import { useFormik } from 'formik'
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import { FRONTPAGE_ROUTE, SIGNUP_ROUTE } from '../../utils/consts';
 import firebase from 'firebase'
@@ -7,6 +7,7 @@ import { Context } from '../../App';
 
 const Login = () => {
     const { setUser, setPending } = useContext(Context)
+    const [error, setError] = useState('');
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -17,15 +18,18 @@ const Login = () => {
             firebase.auth().signInWithEmailAndPassword(values.email, values.password)
                 .then (() => {
                     setUser(true)
+                    setPending(true)
                 }) 
-                .catch(error => alert(error));
+                .catch(error => {
+                    setError(error.message)
+                });
             formik.resetForm(formik.initialValues)
-            setPending(true)
         }
     })
     return (
             <div className='login__wrapper'>
                 <form onSubmit={formik.handleSubmit} className='login__form'>
+                {error ? <span className='error'>{error}</span> : null}
                     <label htmlFor="LoginForm">Email</label>
                     <input type="text" id='LoginForm' onChange={formik.handleChange} name='email' value={formik.values.email} />
 

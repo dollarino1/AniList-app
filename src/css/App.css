@@ -24,6 +24,30 @@ li {
   list-style-type: none;
 }
 
+html::-webkit-scrollbar {
+  width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+  background: #b3b1b1;
+  border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #888888;
+  border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: #646464;
+  border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb:active {
+  background: #444444;
+  border-radius: 10px;
+}
+
 .frontpage {
   margin-top: 55px;
 }
@@ -133,6 +157,7 @@ li {
 }
 
 .login__form, .signup__form {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -199,6 +224,13 @@ li {
   text-decoration: none;
   margin-top: 10px;
   text-align: end;
+}
+
+.error {
+  position: absolute;
+  top: -70px;
+  color: red;
+  font-size: 13px;
 }
 
 .preloader {
@@ -339,6 +371,7 @@ header div button img {
 .search__form input {
   width: 200px;
   height: 30px;
+  border-radius: 5px;
 }
 
 .autocomplete {
@@ -389,6 +422,26 @@ header div button img {
   cursor: pointer;
   -webkit-transition: cubic-bezier(1, 0, 0, 1) 0.2s all;
   transition: cubic-bezier(1, 0, 0, 1) 0.2s all;
+}
+
+.autocomplete::-webkit-scrollbar {
+  width: 8px;
+}
+
+.autocomplete::-webkit-scrollbar-track {
+  background: #b3b1b1;
+}
+
+.autocomplete::-webkit-scrollbar-thumb {
+  background: #888888;
+}
+
+.autocomplete::-webkit-scrollbar-thumb:hover {
+  background: #646464;
+}
+
+.autocomplete::-webkit-scrollbar-thumb:active {
+  background: #444444;
 }
 
 .mainpage__title {

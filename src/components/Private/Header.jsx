@@ -24,7 +24,10 @@ const Header = (props) => {
         setValue(e.target.value)
         setOpen(true)
     }
-    
+    const onItemClick = () => {
+        setOpen(false)
+        setValue('')
+    }
     useEffect(() => {
         dispatch(getAnimeByIdSearch(value))
     }, [value])
@@ -32,12 +35,12 @@ const Header = (props) => {
         <header>
             <NavLink to={MAINPAGE_ROUTE}><img src={logo} alt="logo" /></NavLink>
             <form className='search__form'>
-                <input type='text' onChange={onInputChange} onClick={() => setOpen(true)}></input>
+                <input value={value} placeholder='Search anime..' type='text' onChange={onInputChange} onClick={() => setOpen(true)}></input>
                 {open 
                 ? <ul className='autocomplete' ref={ref}>
                 {searchAnimes.map(anime => 
                 <NavLink exact to={`/anime-entry/${anime.id}`} key={anime.id}>
-                    <li className='autocomplete__item' onClick={() => setOpen(false)}>
+                    <li className='autocomplete__item' onClick={onItemClick}>
                         <img src={anime.coverImage.extraLarge} alt='search-info'/>
                         <div className='autocomplete__info'>
                             <span>{anime.title.english ? anime.title.english : anime.title.romaji}</span>

@@ -5,6 +5,7 @@
     margin-top: 300px;
 }
 .login__form, .signup__form {
+    position: relative;
     display: flex;
     flex-direction: column;
     max-width: fit-content;
@@ -56,4 +57,10 @@
     text-decoration: none;
     margin-top: 10px;
     text-align: end;
+}
+.error {
+    position: absolute;
+    top: -70px;
+    color: red;
+    font-size: 13px;
 }
