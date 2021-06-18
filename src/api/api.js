@@ -145,7 +145,7 @@ export const animeAPI = {
 },
     async getAnimebySearch(search) {
         const query = `
-            query ($id: Int, $page: Int, $perPage: Int, $search: String) {
+            query ($page: Int, $perPage: Int, $search: String) {
                 Page(page: $page, perPage: $perPage) {
                     pageInfo {
                         total
@@ -154,7 +154,7 @@ export const animeAPI = {
                         hasNextPage
                         perPage
                     }
-                media(id: $id, type: ANIME, search: $search) {
+                media(search: $search, type: ANIME, sort: TRENDING_DESC) {
                     id
                     title {
                         romaji

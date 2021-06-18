@@ -14,6 +14,7 @@ const SET_POPULAR_PAGES = 'SET_POPULAR_PAGES';
 
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_ANIME_INFO = 'SET_ANIME_INFO';
+const SET_ANIME_SEARCH_DATA ='SET_ANIME_SEARCH_DATA';
 
 let initialState = {
     trendingAnimeData: [],
@@ -30,6 +31,7 @@ let initialState = {
 
     page: 1,
     animeInfo: null,
+    animeSearchData: []
 }
 
 const mainReducer = (state = initialState, action) => {
@@ -88,6 +90,11 @@ const mainReducer = (state = initialState, action) => {
                 ...state,
                 animeInfo: action.animeInfo
             }
+        case SET_ANIME_SEARCH_DATA: 
+            return {
+                ...state,
+                animeSearchData: action.animeSearchData
+            }
         default: return state;   
     }
 }
@@ -106,7 +113,7 @@ export const setPopularPages = (popularPages) => ({type: SET_POPULAR_PAGES, popu
 
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
 export const setAnimeInfo = (animeInfo) => ({type: SET_ANIME_INFO, animeInfo})
-
+export const setAnimeSearchData = (animeSearchData) => ({type: SET_ANIME_SEARCH_DATA, animeSearchData})
 // Thunk Creators ------------------------------------
 
 export const getTrendingAnimeDataThunk = (page, perPage) => async (dispatch) => {
@@ -133,7 +140,10 @@ export const getAnimeByIdThunk= (id) => async (dispatch) => {
     let payload = await animeAPI.getAnimebyId(id)
         dispatch(setAnimeInfo(payload.media))
 }
-
+export const getAnimeByIdSearch= (search) => async (dispatch) => {
+    let payload = await animeAPI.getAnimebySearch(search)
+        dispatch(setAnimeSearchData(payload.media))
+}
 
 
 export default mainReducer;

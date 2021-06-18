@@ -280,7 +280,7 @@ header {
   margin-top: 20px;
 }
 
-header img {
+header img[alt='logo'] {
   max-width: 300px;
   -webkit-transition: all .1s ease-in-out;
   transition: all .1s ease-in-out;
@@ -288,7 +288,7 @@ header img {
           transition-duration: 0.3s;
 }
 
-header img:hover {
+header img[alt='logo']:hover {
   -webkit-transition-duration: 0.2s;
           transition-duration: 0.2s;
   -webkit-transform: scale(1.02);
@@ -354,8 +354,34 @@ header div button img {
   max-height: 200px;
 }
 
+.autocomplete a {
+  color: black;
+}
+
 .autocomplete__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   padding: 10px;
+  font-size: 12px;
+  text-align: right;
+}
+
+.autocomplete__item img {
+  width: 40px;
+  height: 60px;
+}
+
+.autocomplete__item div {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.autocomplete__item div span {
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .autocomplete__item:hover {

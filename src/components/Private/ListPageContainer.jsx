@@ -16,7 +16,7 @@ const ListPageContainer = () => {
     )
     useEffect(() => {
         dispatch(setAnimeInfo(null))
-    })    
+    })   
     return animes == undefined ? <Loading /> 
     : <ListPage animes={animes}/>
     

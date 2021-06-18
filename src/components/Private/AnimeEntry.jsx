@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Button } from '@material-ui/core';
 import watching from './../../images/watching.svg'
 import planning from './../../images/planning.png'
@@ -9,18 +9,31 @@ import ReactPlayer from 'react-player';
 import { Context } from '../../App';
 import firebase from 'firebase';
 import StyledMenu, {StyledMenuItem } from './../../css/styledmenu'
+import { NavLink, useHistory } from 'react-router-dom'
+import { getAnimeByIdSearch, getAnimeByIdThunk } from '../../redux/mainReducer';
+import { useDispatch } from 'react-redux';
 
 const AnimeEntry = ({anime}) => {
   const {user} = useContext(Context);
   console.log('user id', user.uid)
   const db = firebase.firestore()
-
+  const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const [windowId, setWindowId] = useState(null);
+  const history = useHistory()
+  console.log('history', history)
+  const hist = history.location.pathname.slice(13)
+  console.log('hist', parseInt(hist))
+
+  useEffect(() => {
+      console.log('render')
+      dispatch(getAnimeByIdThunk(parseInt(hist)))
+  }, [hist])
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  
 
   const handleClose = () => {
     setAnchorEl(null);
@@ -97,6 +110,7 @@ const AnimeEntry = ({anime}) => {
             <div className="entry__block">
                 <div className="entry__imageblock">
                     <img src={anime.coverImage.extraLarge} alt="cover" />
+                    {windowId}
                     <div className='entry__menu'>
                         <Button
                             aria-controls="customized-menu"

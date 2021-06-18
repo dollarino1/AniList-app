@@ -16,9 +16,9 @@ const ListPage = React.memo(({animes}) => {
     const {user} = useContext(Context)
     const [listStatusq, setListStatus] = useState('all')
     const [filteredAnimes, setFilteredAnimes] = useState([])
-    animes.reverse()
     console.log(animes)
-
+    console.log('filtered', filteredAnimes)
+    
     const handleAdd = (status, id) => {
         return function () {
             console.log(status)
@@ -58,10 +58,16 @@ const ListPage = React.memo(({animes}) => {
                 break;
         }
     }
+    
+    useEffect(() => {
+        animes.reverse()
+    }, [])
+
     useEffect(() => {
         filterHandler()
         console.log('useeffect')
     }, [animes, listStatusq])
+
     return (
         <>
             <div className='listpage__filter'>

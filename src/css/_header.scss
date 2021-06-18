@@ -4,12 +4,12 @@ header {
     justify-content: space-between;
     margin-bottom: 100px;
     margin-top: 20px;
-    img {
+    img[alt='logo'] {
         max-width: 300px;
         transition: all .1s ease-in-out;
         transition-duration: 0.3s;
     }
-    img:hover {
+    img[alt='logo']:hover {
         transition-duration: 0.2s;
         transform: scale(1.02);
     }
@@ -56,10 +56,28 @@ header {
     height: auto;
     overflow: auto;
     max-height: 200px;
+    a {
+        color: black;
+    }
 }
 .autocomplete__item {
+    display: flex;
     padding: 10px;
+    font-size: 12px;
+    text-align: right;
+    img {
+        width: 40px;
+        height: 60px;
+    }
+    div {
+        span {
+            font-size: 14px;
+            font-weight: bold;
+        }
+        flex-direction: column;
+    }
 }
+
 .autocomplete__item:hover {
     background-color: rgb(211, 211, 211);
     cursor: pointer;
