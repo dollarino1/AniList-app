@@ -12,7 +12,7 @@ const ListPageContainer = () => {
     const db = firebase.firestore()
     const {user} = useContext(Context)
     const [animes] = useCollectionData(
-        db.collection('users').doc(user.uid).collection('animes').orderBy('createdAt')
+        db.collection('users').doc(user.uid).collection('animes').orderBy('createdAt', 'desc')
     )
     useEffect(() => {
         dispatch(setAnimeInfo(null))

@@ -16,8 +16,6 @@ const ListPage = React.memo(({animes}) => {
     const {user} = useContext(Context)
     const [listStatusq, setListStatus] = useState('all')
     const [filteredAnimes, setFilteredAnimes] = useState([])
-    console.log(animes)
-    console.log('filtered', filteredAnimes)
     
     const handleAdd = (status, id) => {
         return function () {
@@ -60,10 +58,6 @@ const ListPage = React.memo(({animes}) => {
     }
     
     useEffect(() => {
-        animes.reverse()
-    }, [])
-
-    useEffect(() => {
         filterHandler()
         console.log('useeffect')
     }, [animes, listStatusq])
@@ -74,27 +68,27 @@ const ListPage = React.memo(({animes}) => {
                 <div className="filterbutton">
                     <Button onClick={statusHandler('all')} color='secondary' size='large'>
                         <img className='listPage__filterimg' src={all} alt="all" />
-                            All
+                        <span className={listStatusq == 'all' && 'selectedFilter'} >All</span>
                     </Button>
                 </div>
                 <div className="filterbutton">
                     <Button onClick={statusHandler('watching')} color='secondary' size='large'>
                         <img className='listPage__filterimg' src={watching1} alt="watching" />
-                        <span>Watching</span>
+                        <span className={listStatusq == 'watching' && 'selectedFilter'}>Watching</span>
                     </Button>
                 </div>
                 
                 <div className="filterbutton">
                     <Button onClick={statusHandler('planning')} color='secondary' size='large'>
                         <img className='listPage__filterimg' src={planning1} alt="planning" />
-                            Planning
+                        <span className={listStatusq == 'planning' && 'selectedFilter'}>Planning</span>
                     </Button>
                 </div>
                 
                 <div className="filterbutton">
                     <Button onClick={statusHandler('completed')} color='secondary' size='large'>
                         <img className='listPage__filterimg' src={completed1} alt="completed" />
-                            Completed
+                        <span className={listStatusq == 'completed' && 'selectedFilter'}>Completed</span>
                     </Button>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
 @import url(f:\Akmal\WEB\AniList\anilist-app\node_modules\react-awesome-slider\dist\styles.css);
 * {
+  color: white;
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
@@ -296,6 +297,7 @@ html::-webkit-scrollbar-thumb:active {
 .preloader-private {
   text-align: center;
   padding-top: 180px;
+  padding-bottom: 180px;
 }
 
 header {
@@ -624,6 +626,10 @@ footer a:hover {
   color: #7fc1ff;
 }
 
+img[alt='avatar'] {
+  width: 150px;
+}
+
 .entry__banner {
   -webkit-box-shadow: inset 0px -98px 29px -43px rgba(0, 0, 0, 0.25);
           box-shadow: inset 0px -98px 29px -43px rgba(0, 0, 0, 0.25);
@@ -918,6 +924,10 @@ a {
 
 .filterbutton {
   margin-right: 20px;
+}
+
+.selectedFilter {
+  border-bottom: 2px solid #c23232;
 }
 
 .listpage__menu button {
