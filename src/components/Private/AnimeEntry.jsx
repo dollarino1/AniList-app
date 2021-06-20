@@ -73,7 +73,10 @@ const AnimeEntry = ({anime}) => {
   }
   
   const type = convertToLowerCase(anime.type)
-  const source = convertToLowerCase(anime.source)
+  if(anime.source) {
+    var source = convertToLowerCase(anime.source)
+  }
+  
   let genres = anime.genres.toString().replace(/([A-Z])/g, ' $1')
 
   function secondsToDhm(seconds) {
@@ -163,11 +166,11 @@ const AnimeEntry = ({anime}) => {
                     <p><strong>Format:</strong> {anime.format}</p>
                     <p><strong>Status:</strong> {status}</p>
                     {anime.episodes ? <p><strong>Episodes:</strong> {anime.episodes}</p> : anime.nextAiringEpisode ? <p><strong>Episodes: </strong> {anime.nextAiringEpisode.episode - 1}</p> : null}
-                    {anime.duration ? <p><strong>Duration:</strong> {anime.duration} min</p> : null}
-                    {anime.season ? <p><strong>Season:</strong> {season} {anime.seasonYear}</p> : null}
+                    {anime.duration && <p><strong>Duration:</strong> {anime.duration} min</p>}
+                    {anime.season && <p><strong>Season:</strong> {season} {anime.seasonYear}</p>}
                     <p><strong>Start date:</strong> {anime.startDate.day}/{anime.startDate.month}/{anime.startDate.year}</p>
                     <p><strong>Genres:</strong> {genres}</p>
-                    <p><strong>Source:</strong> {source}</p>
+                    {source && <p><strong>Source:</strong> {source}</p>}
                     <p><strong>Studio:</strong> {studios}</p>
                     {anime.averageScore ? <p><strong>Average score:</strong> {anime.averageScore}%</p> : null}
                   </div>
