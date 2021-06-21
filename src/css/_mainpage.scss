@@ -136,4 +136,54 @@ footer {
 }
 img[alt='avatar'] {
     width: 150px;
+    height: 150px;
+}
+.profile {
+    display: flex;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    p {
+        margin-bottom: 10px;
+        font-size: 15px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        div{
+            display: flex;
+            flex-direction: column;
+        }
+        input {
+            border: white;
+        }
+    }
+}
+.profile__photo {
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+    align-items: flex-end;
+    img {
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+    span{
+        font-size: 13px;
+    }
+    button {
+        width: 110px;
+    }
+    form {
+        display: flex;
+        align-items: flex-end;
+    }
+}
+input {
+    color: black;
+}
+input[type='file'] {
+    width: 115px;
+}
+p.login__form {
+    
 }

@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
 @import url(f:\Akmal\WEB\AniList\anilist-app\node_modules\react-awesome-slider\dist\styles.css);
 * {
-  color: white;
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
@@ -628,6 +627,88 @@ footer a:hover {
 
 img[alt='avatar'] {
   width: 150px;
+  height: 150px;
+}
+
+.profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+.profile p {
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.profile form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.profile form div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.profile form input {
+  border: white;
+}
+
+.profile__photo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-right: 50px;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.profile__photo img {
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.profile__photo span {
+  font-size: 13px;
+}
+
+.profile__photo button {
+  width: 110px;
+}
+
+.profile__photo form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+input {
+  color: black;
+}
+
+input[type='file'] {
+  width: 115px;
 }
 
 .entry__banner {
