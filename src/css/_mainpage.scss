@@ -139,6 +139,7 @@ img[alt='avatar'] {
     height: 150px;
 }
 .profile {
+    margin-bottom: 200px;
     display: flex;
     color: white;
     font-family: 'Roboto', sans-serif;
@@ -184,6 +185,15 @@ input {
 input[type='file'] {
     width: 115px;
 }
-p.login__form {
-    
+.card__rating {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    input[type='radio'] {
+        display: none;
+    }
+    span { 
+        font-size: 13px;
+        font-weight: bold;
+    }
 }

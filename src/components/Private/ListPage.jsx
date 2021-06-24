@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import firebase from 'firebase';
 import { Context } from '../../App';
-import { useCollectionData } from 'react-firebase-hooks/firestore'
-import Loading from '../../utils/Loading';
 import watching1 from './../../images/watching1.svg'
 import planning1 from './../../images/planning1.svg'
 import completed1 from './../../images/completed1.svg'
@@ -11,18 +9,21 @@ import { Button } from '@material-ui/core';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { NavLink } from 'react-router-dom'
 
+import RatingStars from './ListPage/RatingStars';
+
 const ListPage = React.memo(({animes}) => {
     const db = firebase.firestore()
     const {user} = useContext(Context)
     const [listStatusq, setListStatus] = useState('all')
     const [filteredAnimes, setFilteredAnimes] = useState([])
-    
+
     const handleAdd = (status, id) => {
         return function () {
             console.log(status)
             console.log(id)
             db.collection('users').doc(user.uid).collection('animes').doc(id.toString()).update({
-                 listStatus: status
+                 listStatus: status,
+                 createdAt: firebase.firestore.FieldValue.serverTimestamp()
             })
         }
     }
@@ -91,8 +92,9 @@ const ListPage = React.memo(({animes}) => {
                         <span className={listStatusq == 'completed' && 'selectedFilter'}>Completed</span>
                     </Button>
                 </div>
+                
             </div>
-
+            {filteredAnimes == 0 ? <div className='listpage__empty'>ssd</div> : null}
             {filteredAnimes.map(anime => (
                 <div className="card__wrapper">
                     <div className='card'>
@@ -121,6 +123,7 @@ const ListPage = React.memo(({animes}) => {
                         <div className='card__right'>
                             <h2>{anime.nameEN ? anime.nameEN : anime.nameJP}</h2>
                             <p dangerouslySetInnerHTML={{__html: anime.description}}></p>
+                            <RatingStars db={db} user={user} id={anime.id} myRating={anime.myRating}/>
                         </div>
                         {anime.listStatus == 'watching' &&   
                         <div className='status'>

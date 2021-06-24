@@ -9,8 +9,8 @@ import ReactPlayer from 'react-player';
 import { Context } from '../../App';
 import firebase from 'firebase';
 import StyledMenu, {StyledMenuItem } from './../../css/styledmenu'
-import { NavLink, useHistory } from 'react-router-dom'
-import { getAnimeByIdSearch, getAnimeByIdThunk } from '../../redux/mainReducer';
+import { useHistory } from 'react-router-dom'
+import { getAnimeByIdThunk } from '../../redux/mainReducer';
 import { useDispatch } from 'react-redux';
 
 const AnimeEntry = ({anime}) => {
@@ -56,6 +56,7 @@ const AnimeEntry = ({anime}) => {
         episodes: anime.episodes,
         description: anime.description,
         rating: anime.averageScore,
+        myRating: null,
         genres: genres,
         season: season,
         nextAiringEpisode: anime.nextAiringEpisode,
