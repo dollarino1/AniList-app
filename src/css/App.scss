@@ -10,7 +10,7 @@ body {
     background-color: #282626;
 }
 .wrapper {
-    width: 1120px;
+    max-width: 1120px;
     margin: 0 auto;
 }
 ul {
@@ -75,4 +75,212 @@ html::-webkit-scrollbar-thumb:active {
 }
 .awssld__wrapper {
     border-radius: 20px;
+}
+
+
+@media (max-width: 1140px) {
+    .wrapper {
+        padding: 15px;
+    }
+    .mainpage__imagecard {
+        img {
+            margin: 0px;
+            width: 190px;
+            height: 270px;
+        }
+    }
+}
+@media (max-width: 986px) {
+    .mainpage__imagecard {
+        img {
+            width: 160px;
+            height: 240px;
+        }
+    }
+    .entry__description {
+        padding-left: 10px;
+    }
+    .entry__banner {
+        img {
+            height: 240px;
+        }
+    }
+    .entry__card {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .entry__actor {
+        padding: 10px;
+    }
+}
+@media (max-width: 835px) {
+    .mainpage__card {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .mainpage__imagecard {
+        margin-right: 10px;
+        width: 200px;
+        height: 350px;
+        img {
+            width: 190px;
+            height: 270px;
+        }
+    }
+    .header__option {
+        margin-right: 50px;
+    }
+    .entry__video {
+        width: 550px;
+    }
+    .entry__banner {
+        img {
+            height: 220px;
+        }
+    }
+}
+@media (max-width: 680px) {
+    .mainpage__card {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .search__form {
+        input {
+            width: 150px;
+        }
+    }
+    header {
+        margin-bottom: 70px;
+        flex-wrap:wrap;
+    }
+    img[alt='logo'] {
+        width: 200px;
+    }
+    .entry__card {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .entry__video {
+        width: 400px;
+    }
+    .entry__banner {
+        img {
+            height: 200px;
+        }
+    }
+    .card__right {
+        p {
+            display: none;
+        }
+    }
+}
+@media (max-width: 538px) {
+    header {
+        justify-content: center;
+    }
+    .search__form {
+        input {
+            width: 200px;
+        }
+    }
+    img[alt='logo'] {
+        text-align: center;
+        width: 300px;
+        margin-left: 60px;
+        margin-bottom: 20px;
+    }
+    footer {
+        div {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            ul {
+                width: 200px;
+                padding-left: 0;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+        }
+    }
+    .entry__block {
+        grid-template-columns: 1fr;
+    }
+    .entry__video {
+        width: 400px;
+        
+    }
+    .entry__banner {
+        img {
+            height: 150px;
+        }
+    }
+}
+@media (max-width: 454px) {
+    .entry__banner {
+        display: none;
+    }
+    .mainpage__slider {
+        display: none;
+    }
+    .mainpage__imagecard {
+        width: 150px;
+        height: 320px;
+        img {
+            width: 140px;
+            height: 220px;
+        }
+    }
+    .entry__video {
+        width: 350px;
+    }
+    .card {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .card__left {
+        text-align: center;
+        padding-right: 0;
+    }
+    .card__right {
+        text-align: center;
+        padding-top: 20px;
+    }
+    .status {
+        span {
+            top: -355px;
+            right: 85px;
+        }
+    }
+    .card__image {
+        span {
+            left: 35px;
+        }
+    }
+}
+
+@media (max-width: 360px) {
+    .mainpage__imagecard {
+        width: 130px;
+        height: 280px;
+        img {
+            width: 120px;
+            height: 180px;
+        }
+    }
+    .search__form {
+        input {
+            width: 150px;
+        }
+    }
+    .paginator__pagebar {
+        span {
+            margin-right: 5px;
+        }
+    }
+    .entry__video {
+        width: 300px;
+    }
+    .entry__card {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }

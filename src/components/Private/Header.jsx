@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
-import { NavLink, useHistory } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import logo from './../../images/logo.png'
 import exitImg from './../../images/exit_to_app.svg'
 import accountImg from './../../images/account_circle.svg'
-import bookmark from './../../images/bookmark.svg'
+import bookmark from './../../images/bookmark1.svg'
 import app from '../..'
 import { LISTPAGE_ROUTE, MAINPAGE_ROUTE, PROFILE_ROUTE } from '../../utils/consts'
 import { useState } from 'react'
@@ -34,8 +34,9 @@ const Header = (props) => {
     return (
         <header>
             <NavLink to={MAINPAGE_ROUTE}><img src={logo} alt="logo" /></NavLink>
+            <div className='header__right'>
             <form className='search__form'>
-                <input value={value} placeholder='Search anime..' type='text' onChange={onInputChange} onClick={() => setOpen(true)}></input>
+                <input value={value} placeholder='  Search anime..' type='text' onChange={onInputChange} onClick={() => setOpen(true)}></input>
                 {open 
                 ? <ul className='autocomplete' ref={ref}>
                 {searchAnimes.map(anime => 
@@ -61,6 +62,8 @@ const Header = (props) => {
                 <NavLink to={PROFILE_ROUTE}><img className="header__img" src={accountImg} alt="profile" /></NavLink>
                 <button onClick={() => app.auth().signOut()}><img src={exitImg} alt='exit_'/></button>
             </div>
+            </div>
+            
         </header>
     )
 }

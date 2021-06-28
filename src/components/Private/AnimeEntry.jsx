@@ -157,41 +157,46 @@ const AnimeEntry = ({anime}) => {
                 </div>
                 <div className="entry__description">
                     <span>{anime.title.english ? anime.title.english : anime.title.romaji}</span>
-                    <div dangerouslySetInnerHTML={{__html: anime.description}} />
+                    <div><p dangerouslySetInnerHTML={{__html: anime.description}} /></div>
                 </div>
-                  
-                <div className="entry__short">
-                  <div className="entry__wrapper">
-                    {anime.nextAiringEpisode ? <p className="airing"><strong>Airing:</strong> Ep {anime.nextAiringEpisode.episode}: {timeUntilAiring}</p> : null}
-                    <p><strong>Type:</strong> {type}</p>
-                    <p><strong>Format:</strong> {anime.format}</p>
-                    <p><strong>Status:</strong> {status}</p>
-                    {anime.episodes ? <p><strong>Episodes:</strong> {anime.episodes}</p> : anime.nextAiringEpisode ? <p><strong>Episodes: </strong> {anime.nextAiringEpisode.episode - 1}</p> : null}
-                    {anime.duration && <p><strong>Duration:</strong> {anime.duration} min</p>}
-                    {anime.season && <p><strong>Season:</strong> {season} {anime.seasonYear}</p>}
-                    <p><strong>Start date:</strong> {anime.startDate.day}/{anime.startDate.month}/{anime.startDate.year}</p>
-                    <p><strong>Genres:</strong> {genres}</p>
-                    {source && <p><strong>Source:</strong> {source}</p>}
-                    <p><strong>Studio:</strong> {studios}</p>
-                    {anime.averageScore ? <p><strong>Average score:</strong> {anime.averageScore}%</p> : null}
+                
+                  <div className="entry__short">
+                    <div className="entry__wrapper">
+                      {anime.nextAiringEpisode ? <p className="airing"><strong>Airing:</strong> Ep {anime.nextAiringEpisode.episode}: {timeUntilAiring}</p> : null}
+                      <p><strong>Type:</strong> {type}</p>
+                      <p><strong>Format:</strong> {anime.format}</p>
+                      <p><strong>Status:</strong> {status}</p>
+                      {anime.episodes ? <p><strong>Episodes:</strong> {anime.episodes}</p> : anime.nextAiringEpisode ? <p><strong>Episodes: </strong> {anime.nextAiringEpisode.episode - 1}</p> : null}
+                      {anime.duration && <p><strong>Duration:</strong> {anime.duration} min</p>}
+                      {anime.season && <p><strong>Season:</strong> {season} {anime.seasonYear}</p>}
+                      <p><strong>Start date:</strong> {anime.startDate.day}/{anime.startDate.month}/{anime.startDate.year}</p>
+                      <p><strong>Genres:</strong> {genres}</p>
+                      {source && <p><strong>Source:</strong> {source}</p>}
+                      <p><strong>Studio:</strong> {studios}</p>
+                      {anime.averageScore ? <p><strong>Average score:</strong> {anime.averageScore}%</p> : null}
+                    </div>
                   </div>
-                </div>
-                <div className="entry__info">
-                  <div className="entry__card">
-                    {characters[0].map((char) => (
-                      <div className="entry__actor" key={char.id}>
-                        <img src={char.image.large}></img>
-                        <span>{char.name.full}</span>
-                      </div>
-                    ))}
+                  <div className="entry__info">
+                    <div className="entry__card">
+                      {characters[0].map((char) => (
+                        <div className="entry__actor" key={char.id}>
+                          <img src={char.image.large}></img>
+                          <span>{char.name.full}</span>
+                        </div>
+                      ))}
+                    </div>
+                    {anime.trailer ? 
+                  <div className="entry__video">
+                    
+                      <ReactPlayer url={`https://www.youtube.com/watch?v=${anime.trailer.id}`} />
+                    
+                    
+                  </div> : null}
                   </div>
-                  {anime.trailer ? 
-                <div className="entry__video">
-                  <ReactPlayer url={`https://www.youtube.com/watch?v=${anime.trailer.id}`} />
-                </div> : null}
                 </div>
 
-                </div>
+
+                
          
         </div>
     
