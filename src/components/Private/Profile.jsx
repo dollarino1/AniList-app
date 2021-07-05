@@ -4,7 +4,6 @@ import { Context } from '../../App';
 import { useFormik } from 'formik'
 import { useState } from 'react';
 import firebase from 'firebase'
-import { Button } from '@material-ui/core';
 
 const Profile = () => {
     const {user} = useContext(Context);

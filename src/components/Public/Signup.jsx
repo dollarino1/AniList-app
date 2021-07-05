@@ -1,13 +1,11 @@
 import { useFormik } from 'formik'
 import React, { useContext, useState }  from 'react'
-import { NavLink, Redirect } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { LOGIN_ROUTE, FRONTPAGE_ROUTE } from '../../utils/consts'
 import firebase from 'firebase';
 import { Context } from '../../App';
 
 const Signup = () => {
-    const db = firebase.firestore();
-
     const { setUser, setPending } = useContext(Context)
     const [error, setError] = useState('');
     const formik = useFormik({

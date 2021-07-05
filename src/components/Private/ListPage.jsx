@@ -44,13 +44,13 @@ const ListPage = React.memo(({animes}) => {
     const filterHandler = () => {
         switch(listStatusq) {
             case 'watching':
-                setFilteredAnimes(animes.filter(anime => anime.listStatus == 'watching'))
+                setFilteredAnimes(animes.filter(anime => anime.listStatus === 'watching'))
                 break;
             case 'planning':
-                setFilteredAnimes(animes.filter(anime => anime.listStatus == 'planning'))
+                setFilteredAnimes(animes.filter(anime => anime.listStatus === 'planning'))
                 break;
             case 'completed':
-                setFilteredAnimes(animes.filter(anime => anime.listStatus == 'completed'))
+                setFilteredAnimes(animes.filter(anime => anime.listStatus === 'completed'))
                 break;
             default:
                 setFilteredAnimes(animes)
@@ -69,39 +69,39 @@ const ListPage = React.memo(({animes}) => {
                 <div className="filterbutton">
                     <Button onClick={statusHandler('all')} color='secondary' size='large'>
                         <img className='listPage__filterimg' src={all} alt="all" />
-                        <span className={listStatusq == 'all' && 'selectedFilter'} >All</span>
+                        <span className={listStatusq === 'all' && 'selectedFilter'} >All</span>
                     </Button>
                 </div>
                 <div className="filterbutton">
                     <Button onClick={statusHandler('watching')} color='secondary' size='large'>
                         <img className='listPage__filterimg' src={watching1} alt="watching" />
-                        <span className={listStatusq == 'watching' && 'selectedFilter'}>Watching</span>
+                        <span className={listStatusq === 'watching' && 'selectedFilter'}>Watching</span>
                     </Button>
                 </div>
                 
                 <div className="filterbutton">
                     <Button onClick={statusHandler('planning')} color='secondary' size='large'>
                         <img className='listPage__filterimg' src={planning1} alt="planning" />
-                        <span className={listStatusq == 'planning' && 'selectedFilter'}>Planning</span>
+                        <span className={listStatusq === 'planning' && 'selectedFilter'}>Planning</span>
                     </Button>
                 </div>
                 
                 <div className="filterbutton">
                     <Button onClick={statusHandler('completed')} color='secondary' size='large'>
                         <img className='listPage__filterimg' src={completed1} alt="completed" />
-                        <span className={listStatusq == 'completed' && 'selectedFilter'}>Completed</span>
+                        <span className={listStatusq === 'completed' && 'selectedFilter'}>Completed</span>
                     </Button>
                 </div>
                 
             </div>
-            {filteredAnimes == 0 ? <div className='listpage__empty'>ssd</div> : null}
+            {filteredAnimes === 0 ? <div className='listpage__empty'>ssd</div> : null}
             {filteredAnimes.map(anime => (
                 <div className="card__wrapper">
                     <div className='card'>
                         <div className="card__left">
                             <NavLink exact to={`/anime-entry/${anime.id}`} key={anime.id}>
                                 <div className="card__image">
-                                    <img src={anime.imgURL}/>
+                                    <img src={anime.imgURL} alt='anime-img'/>
                                     <span>{anime.rating}</span>
                                 </div>
                             </NavLink>
@@ -109,11 +109,11 @@ const ListPage = React.memo(({animes}) => {
                             <p>Episodes: {anime.episodes ? anime.episodes : anime.nextAiringEpisode - 1}</p>
                             <div className='listpage__menu'>
                             <ButtonGroup variant="default" color="secondary" aria-label="contained primary button group">
-                                {anime.listStatus == 'watching' ? <Button onClick={handleAdd('watching', anime.id)} variant='contained'>W</Button>
+                                {anime.listStatus === 'watching' ? <Button onClick={handleAdd('watching', anime.id)} variant='contained'>W</Button>
                                 : <Button onClick={handleAdd('watching', anime.id)} variant='primary'>W</Button>}
-                                {anime.listStatus == 'planning' ? <Button onClick={handleAdd('planning', anime.id)} variant='contained'>P</Button> : 
+                                {anime.listStatus === 'planning' ? <Button onClick={handleAdd('planning', anime.id)} variant='contained'>P</Button> : 
                                 <Button onClick={handleAdd('planning', anime.id)} variant='primary'>P</Button>}
-                                {anime.listStatus == 'completed' ? <Button onClick={handleAdd('completed', anime.id)} variant='contained'>C</Button> :
+                                {anime.listStatus === 'completed' ? <Button onClick={handleAdd('completed', anime.id)} variant='contained'>C</Button> :
                                 <Button onClick={handleAdd('completed', anime.id)}>C</Button> }  
                             </ButtonGroup>
                             <Button onClick={handleDelete(anime.id)}>Delete</Button>
@@ -125,15 +125,15 @@ const ListPage = React.memo(({animes}) => {
                             <p dangerouslySetInnerHTML={{__html: anime.description}}></p>
                             <RatingStars db={db} user={user} id={anime.id} myRating={anime.myRating}/>
                         </div>
-                        {anime.listStatus == 'watching' &&   
+                        {anime.listStatus === 'watching' &&   
                         <div className='status'>
                             <span className='status1'>{anime.listStatus}</span>
                         </div>}
-                        {anime.listStatus == 'planning' &&   
+                        {anime.listStatus === 'planning' &&   
                         <div className='status'>
                             <span className='status2'>{anime.listStatus}</span>
                         </div>}
-                        {anime.listStatus == 'completed' &&   
+                        {anime.listStatus === 'completed' &&   
                         <div className='status'>
                             <span className='status3'>{anime.listStatus}</span>
                         </div>}

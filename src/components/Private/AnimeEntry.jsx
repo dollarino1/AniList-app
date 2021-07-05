@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Button } from '@material-ui/core';
 import watching from './../../images/watching.svg'
 import planning from './../../images/planning.png'
@@ -20,7 +20,6 @@ const AnimeEntry = ({anime}) => {
   const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
-  const [windowId, setWindowId] = useState(null);
   const history = useHistory()
   console.log('history', history)
   const hist = history.location.pathname.slice(13)
@@ -86,9 +85,9 @@ const AnimeEntry = ({anime}) => {
     var h = Math.floor(seconds % (3600*24) / 3600);
     var m = Math.floor(seconds % 3600 / 60);
     
-    var dDisplay = d > 0 ? d + (d == 1 ? "d " : "d ") : "";
-    var hDisplay = h > 0 ? h + (h == 1 ? "h " : "h ") : "";
-    var mDisplay = m > 0 ? m + (m == 1 ? "m " : "m ") : "";
+    var dDisplay = d > 0 ? d + (d === 1 ? "d " : "d ") : "";
+    var hDisplay = h > 0 ? h + (h === 1 ? "h " : "h ") : "";
+    var mDisplay = m > 0 ? m + (m === 1 ? "m " : "m ") : "";
     return dDisplay + hDisplay + mDisplay;
     }
 
@@ -114,7 +113,6 @@ const AnimeEntry = ({anime}) => {
             <div className="entry__block">
                 <div className="entry__imageblock">
                     <img src={anime.coverImage.extraLarge} alt="cover" />
-                    {windowId}
                     <div className='entry__menu'>
                         <Button
                             aria-controls="customized-menu"
@@ -180,18 +178,15 @@ const AnimeEntry = ({anime}) => {
                     <div className="entry__card">
                       {characters[0].map((char) => (
                         <div className="entry__actor" key={char.id}>
-                          <img src={char.image.large}></img>
+                          <img src={char.image.large} alt='char-img'></img>
                           <span>{char.name.full}</span>
                         </div>
                       ))}
                     </div>
                     {anime.trailer ? 
-                  <div className="entry__video">
-                    
-                      <ReactPlayer url={`https://www.youtube.com/watch?v=${anime.trailer.id}`} />
-                    
-                    
-                  </div> : null}
+                      <div className="entry__video">
+                          <ReactPlayer url={`https://www.youtube.com/watch?v=${anime.trailer.id}`} />
+                      </div> : null}
                   </div>
                 </div>
 

@@ -6,7 +6,6 @@ import { FRONTPAGE_ROUTE, LOGIN_ROUTE, MAINPAGE_ROUTE,
     TRENDING_ROUTE, SEASON_ROUTE, UPCOMING_ROUTE, 
     POPULAR_ROUTE, 
     ANIMEPAGE_ROUTE} from "./utils/consts";
-import ListPage from "./components/Private/ListPage";
 import Profile from './components/Private/Profile';
 import Trending from "./components/Private/MainPage/Trending";
 import SeasonPopular from "./components/Private/MainPage/SeasonPopular";

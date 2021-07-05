@@ -4,12 +4,12 @@ const Footer = () => {
     return (
         <footer>
             <a className='site-link' href='https://www.myanimelist.netlify.app/'>
-                myanimelist.netlify.app
+                MyAnimeList.netlify.app
             </a>
             <div>
             <ul>
-                <li><a>Donate</a></li>
-                <li><a href='https://www.myanimelist.netlify.app/'>myanimelist.netlify.app</a></li>
+                <li><a href='https://www.myanimelist.netlify.app/'>Donate</a></li>
+                <li><a href='https://www.myanimelist.netlify.app/'>MyAnimeList.netlify.app</a></li>
                 <li><a href='https://anilist.co/'>AniList.co</a></li>
                 <li><a href='https://anichart.net/'>AniChart.net</a></li>
             </ul>

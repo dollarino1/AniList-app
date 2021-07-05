@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import firebase from 'firebase';
 import { Context } from '../../App';
 import { useCollectionData } from 'react-firebase-hooks/firestore'
@@ -17,7 +17,7 @@ const ListPageContainer = () => {
     useEffect(() => {
         dispatch(setAnimeInfo(null))
     })   
-    return animes == undefined ? <Loading /> 
+    return animes === undefined ? <Loading /> 
     : <ListPage animes={animes}/>
     
 }
