@@ -1,6 +1,6 @@
 {
   "name": "anilist-app",
-  "homepage": "./",
+  "homepage": "https://myanimelist.netlify.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

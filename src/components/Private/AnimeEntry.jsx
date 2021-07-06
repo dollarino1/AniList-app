@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from 'react'
 import { Button } from '@material-ui/core';
-import watching from './../../images/watching.svg'
+import watching from './../../images/watching2.png'
 import planning from './../../images/planning.png'
-import completed from './../../images/completed.svg'
+import completed from './../../images/completed2.png'
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ReactPlayer from 'react-player';
