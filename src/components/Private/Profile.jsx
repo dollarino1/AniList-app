@@ -59,7 +59,7 @@ const Profile = () => {
             </div>
                 
 
-            <div>
+            <div className='profile__info'>
                 <p><strong>E-mail: </strong> {user.email}</p>
                 {user.displayName && <div className='login__form'><p><strong>Name: </strong> {user.displayName}</p> <button onClick={() => setEditName(null)}>Edit</button></div>}
 

@@ -12,8 +12,11 @@ const FrontPage = () => {
         <div className="frontpage__intro">
             <img src={mainImg} alt="mainImg" />
             <div className="frontpage__title">
-                <h1>Your Anime List</h1>
-                <hr />
+                <div>
+                    <h1>Your Anime List</h1>
+                    <hr />
+                </div>
+                
                 <h3>Simple list of your favourite animes</h3>
             </div>
         </div>

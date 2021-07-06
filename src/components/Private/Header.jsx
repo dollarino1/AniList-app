@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
-import logo from './../../images/logo.png'
+import logo from './../../images/logo1.png'
 import exitImg from './../../images/exit_to_app.svg'
 import accountImg from './../../images/account_circle.svg'
 import bookmark from './../../images/bookmark1.svg'
@@ -55,7 +55,7 @@ const Header = (props) => {
                 : null}
                 
             </form>
-            <div>
+            <div className='header__options'>
                 <div className="header__option">
                     <NavLink to={LISTPAGE_ROUTE}><img className="header__img" src={bookmark} alt="bookmark"/></NavLink>
                 </div>

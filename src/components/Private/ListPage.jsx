@@ -66,7 +66,7 @@ const ListPage = React.memo(({animes}) => {
     return (
         <>
             <div className='listpage__filter'>
-                <div className="filterbutton">
+                <div className="filterbutton filter-first">
                     <Button onClick={statusHandler('all')} color='secondary' size='large'>
                         <img className='listPage__filterimg' src={all} alt="all" />
                         <span className={listStatusq === 'all' && 'selectedFilter'} >All</span>

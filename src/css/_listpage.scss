@@ -2,6 +2,7 @@
     padding-top: 100px;
 }
 .card {
+    position: relative;
     font-family: 'Roboto', sans-serif;
     padding: 40px;
     display: flex;
@@ -25,11 +26,9 @@
     
 }
 .status {
-    position: relative;
+    position: absolute;
+    top: 47px;
     span {
-        position:absolute;
-        top: -40px;
-        right: 100px;
         text-align: center;
         text-transform: capitalize;
         font-weight: bold;
