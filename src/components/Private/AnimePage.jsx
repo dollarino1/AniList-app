@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAnimeByIdThunk } from '../../redux/mainReducer';
 import Loading from '../../utils/Loading';
 import AnimeEntry from './AnimeEntry';
+import CommentsSection from './CommentsSection';
 
 const AnimePage = React.memo(({match}) => {
     let dispatch = useDispatch();
@@ -18,7 +19,10 @@ const AnimePage = React.memo(({match}) => {
         return <Loading />
     }
     return (
-        <AnimeEntry anime={anime[0]}/>
+        <>
+            <AnimeEntry anime={anime[0]}/>
+            <CommentsSection animeId={anime[0].id} />
+        </>
     )
 })
 

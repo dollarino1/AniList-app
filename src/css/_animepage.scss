@@ -107,3 +107,38 @@
     color: white;
     font-size: 16px;
 }
+
+.comments {
+    margin-top: 40px;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+}
+
+.comment__form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.comment__form textarea {
+    resize: vertical;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.comment__form button {
+    width: 80px;
+    align-self: flex-end;
+}
+
+.comment {
+    margin-bottom: 15px;
+    background-color: rgba(250, 235, 215, 0.096);
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.comment__user {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
