@@ -94,7 +94,7 @@ const ListPage = React.memo(({animes}) => {
                 </div>
                 
             </div>
-            {filteredAnimes === 0 ? <div className='listpage__empty'>ssd</div> : null}
+            {filteredAnimes.length === 0 ? <div className='listpage__empty'>No anime found.</div> : null}
             {filteredAnimes.map(anime => (
                 <div className="card__wrapper">
                     <div className='card'>
